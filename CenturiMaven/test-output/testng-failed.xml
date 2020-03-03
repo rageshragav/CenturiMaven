@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)" preserve-order="true">
     <classes>
-      <class name="riskmodule.Add_Risk">
+      <class name="riskmodule.pdca">
         <methods>
           <include name="Launch_Browser"/>
-          <include name="Adding_New_Risk"/>
+          <include name="pdca_availability"/>
         </methods>
-      </class> <!-- riskmodule.Add_Risk -->
+      </class> <!-- riskmodule.pdca -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

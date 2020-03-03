@@ -44,8 +44,11 @@ public void userlogin() throws InterruptedException {
 
 	@BeforeTest
 	public void Launch_Browser() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","D:\\chromedriver_80.exe");
-		 driver = new ChromeDriver();
+		//System.setProperty("webdriver.chrome.driver","D:\\chromedriver_80.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\drivers\\chromedriver_80.exe");
+		
+		 
+		driver = new ChromeDriver();
 		 driver.get("http://demo-centuri.conevo.in/");
 		 driver.manage().window().maximize();
 		
