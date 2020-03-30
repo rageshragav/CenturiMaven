@@ -6,7 +6,9 @@
       <class name="riskmodule.pdca">
         <methods>
           <include name="Launch_Browser"/>
+          <include name="endReport"/>
           <include name="pdca_availability"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- riskmodule.pdca -->
     </classes>

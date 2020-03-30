@@ -26,13 +26,13 @@ public class Risk_Cases extends Centuri_Base{
  String EditRiskTitle = "Automated Edited Risk";
 String RiskTitle = "Automated Risk";
  String RiskDescription = "Automated Risk";
- private CenturiHomePage chp;
- private CenturiPdcaPage PDCA_Page;
+ public CenturiHomePage chp;
+ public CenturiPdcaPage PDCA_Page;
 	
-	public void setup() {
+	/*public void setup() {
 		 chp = new CenturiHomePage(driver, wait);
 		 PDCA_Page = new CenturiPdcaPage(driver,wait);
-	}
+	}*/
 	
 	@Test(description ="Verify whether user can able to add new risk")
 			//,dependsOnMethods = { "User_login" })
@@ -45,9 +45,11 @@ String RiskTitle = "Automated Risk";
 	//(dependsOnMethods = { "login" })
 	public void Adding_New_Risk() throws InterruptedException, IOException {
 		 
-		
+		 chp = new CenturiHomePage(driver, wait);
+		 PDCA_Page = new CenturiPdcaPage(driver,wait);
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'START')]")));
 		Thread.sleep(2000);	
+		//Assert.assertEquals(true, chp.pdcaicon().isDisplayed());
 		 JavascriptExecutor js = (JavascriptExecutor) driver; 
 		 js.executeScript("arguments[0].click();", chp.pdcaicon());
 		// chp.waitForVisibilityOfElementpdcaicon().click();
@@ -84,6 +86,7 @@ String RiskTitle = "Automated Risk";
 		    }
 		    else {
 		    	Assert.assertFalse(true);
+		    	System.out.println("Risk not added");
 		    }
 		 }
 		 try {
@@ -97,15 +100,16 @@ String RiskTitle = "Automated Risk";
 }
 	@Test(description ="Verify whether user can able to add new risk",priority=2)
 	//,dependsOnMethods = { "User_login" })
-@Description("Verify whether user can able to add new risk")
-@Epic("Sprint 84")
-@Feature("Adding a new Risk")
-@Story("1234")
-@Step("Adding a new Risk")
-@Severity(SeverityLevel.NORMAL)
+	@Description("Verify whether user can able to add new risk")
+	@Epic("Sprint 84")
+	@Feature("Adding a new Risk")
+	@Story("1234")
+	@Step("Adding a new Risk")
+	@Severity(SeverityLevel.NORMAL)
 //(dependsOnMethods = { "login" })
 public void Edit_Risk() throws InterruptedException, IOException {
 		 PDCA_Page.waitForVisibilityOfElementrisktitle();
+		 Assert.assertEquals(true,PDCA_Page.waitForVisibilityOfElementrisktitle().isDisplayed());
 		 PDCA_Page.riskTitleField().clear();
 		 PDCA_Page.riskTitleField().sendKeys(EditRiskTitle);
 		 PDCA_Page.descriptionField().sendKeys("Edited description");

@@ -1,55 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="0" total="1" passed="0">
+<testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="28736" started-at="2020-02-28T05:46:25Z" finished-at="2020-02-28T05:46:54Z">
+  <suite name="Default suite" duration-ms="220636" started-at="2020-03-12T12:22:51Z" finished-at="2020-03-12T12:26:32Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="28736" started-at="2020-02-28T05:46:25Z" finished-at="2020-02-28T05:46:54Z">
+    <test name="Default test" duration-ms="220636" started-at="2020-03-12T12:22:51Z" finished-at="2020-03-12T12:26:32Z">
       <class name="riskmodule.pdca">
-        <test-method status="FAIL" signature="Launch_Browser()[pri:0, instance:riskmodule.pdca@6e75aa0d]" name="Launch_Browser" is-config="true" duration-ms="0" started-at="2020-02-28T11:16:25Z" finished-at="2020-02-28T11:16:25Z">
-          <exception class="org.openqa.selenium.WebDriverException">
+        <test-method status="PASS" signature="Launch_Browser(java.lang.String)[pri:0, instance:riskmodule.pdca@402e37bc]" name="Launch_Browser" is-config="true" duration-ms="59747" started-at="2020-03-12T17:52:51Z" finished-at="2020-03-12T17:53:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Launch_Browser -->
+        <test-method status="FAIL" signature="pdca_availability()[pri:0, instance:riskmodule.pdca@402e37bc]" name="pdca_availability" duration-ms="160135" started-at="2020-03-12T17:53:51Z" description="Verify whether user can able to Enable/Disable view of the PDCA icon in home page" finished-at="2020-03-12T17:56:31Z">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[chrome not reachable
-  (Session info: chrome=80.0.3987.122)
-Build info: version: '4.0.0-alpha-4', revision: 'c2d955b49e'
-System info: host: 'DESKTOP-2M850KM', ip: '192.168.1.189', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\conevo\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:62503}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 47868846e1ac11dbb4b8f5851f9af546]]>
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //*[contains(text(),'START')] (tried for 160 second(s) with 500 milliseconds interval)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: chrome not reachable
-  (Session info: chrome=80.0.3987.122)
-Build info: version: '4.0.0-alpha-4', revision: 'c2d955b49e'
-System info: host: 'DESKTOP-2M850KM', ip: '192.168.1.189', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\conevo\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:62503}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 47868846e1ac11dbb4b8f5851f9af546
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:639)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:643)
-	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteWindow.maximize(RemoteWebDriver.java:903)
-	at riskmodule.Centuri_Base.Launch_Browser(Centuri_Base.java:53)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[contains(text(),'START')] (tried for 160 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:234)
+	at riskmodule.pdca.pdca_availability(pdca.java:46)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
-	at org.testng.TestRunner.beforeRun(TestRunner.java:641)
-	at org.testng.TestRunner.run(TestRunner.java:609)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:715)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:907)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1237)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
 	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
 	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
@@ -62,16 +52,54 @@ Session ID: 47868846e1ac11dbb4b8f5851f9af546
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(text(),'START')]"}
+  (Session info: chrome=80.0.3987.132)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.0.0-alpha-4', revision: 'c2d955b49e'
+System info: host: 'DESKTOP-2M850KM', ip: '192.168.1.189', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.132, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\conevo\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:50178}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 3a2d3a877d0e0da0e093d662671b7369
+*** Element info: {Using=xpath, value=//*[contains(text(),'START')]}
+	at sun.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:333)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:451)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:394)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:325)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
+	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:211)
+	... 25 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Launch_Browser -->
-        <test-method status="SKIP" signature="pdca_availability()[pri:0, instance:riskmodule.pdca@6e75aa0d]" name="pdca_availability" duration-ms="11" started-at="2020-02-28T11:16:54Z" description="Verify whether user can able to Enable/Disable view of the PDCA icon in home page" finished-at="2020-02-28T11:16:54Z">
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- pdca_availability -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:riskmodule.pdca@402e37bc]" name="tearDown" is-config="true" duration-ms="39" started-at="2020-03-12T17:56:31Z" finished-at="2020-03-12T17:56:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult: pdca_availability STATUS:FAILURE METHOD:pdca.pdca_availability()[pri:0, instance:riskmodule.pdca@402e37bc]]
+]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="endReport()[pri:0, instance:riskmodule.pdca@402e37bc]" name="endReport" is-config="true" duration-ms="612" started-at="2020-03-12T17:56:31Z" finished-at="2020-03-12T17:56:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endReport -->
       </class> <!-- riskmodule.pdca -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

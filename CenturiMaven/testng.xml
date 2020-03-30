@@ -13,4 +13,28 @@
     </classes>
     </test>
     
+    <test name="ChromeTest">
+<parameter name="browser" value="Chrome" />
+<classes>
+<class name="riskmodule.pdca">
+</class>
+</classes>
+</test>
+
+<test name="FirefoxTest">
+<parameter name="browser" value="Firefox" />
+<classes>
+<class name="riskmodule.pdca">
+</class>
+</classes>
+</test>
+
+<test name="EdgeTest">
+<parameter name="browser" value="Edge" />
+<classes>
+<class name="riskmodule.pdca">
+</class>
+</classes>
+</test>
+
     </suite>
