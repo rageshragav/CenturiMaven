@@ -17,6 +17,7 @@ public class CenturiHomePage {
 	}
 	
 	By pdcaicon = By.xpath("//*[text()='PDCA']");
+	By featureIconsContainer = By.xpath("//*[@class='fixed-widgets']");
 	
 	public WebElement waitForVisibilityOfElementpdcaicon() {
 		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(pdcaicon));
@@ -24,6 +25,9 @@ public class CenturiHomePage {
 	
 	public WebElement pdcaicon() {
 		return driver.findElement(pdcaicon);
+	}
+	public WebElement featureIconsContainer() {
+		return driver.findElement(featureIconsContainer);
 	}
 
 	

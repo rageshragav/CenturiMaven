@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]">
-  <test name="Default test(failed)" preserve-order="true">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test(failed)">
     <classes>
-      <class name="riskmodule.pdca">
+      <class name="CenturiHomePageCases.Home_Page_Tests">
         <methods>
           <include name="Launch_Browser"/>
-          <include name="endReport"/>
-          <include name="pdca_availability"/>
-          <include name="tearDown"/>
+          <include name="centuri_home_page_testcase_002"/>
+          <include name="centuri_home_page_testcase_001"/>
         </methods>
-      </class> <!-- riskmodule.pdca -->
+      </class> <!-- CenturiHomePageCases.Home_Page_Tests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

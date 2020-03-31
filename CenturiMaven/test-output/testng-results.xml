@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="220636" started-at="2020-03-12T12:22:51Z" finished-at="2020-03-12T12:26:32Z">
+  <suite started-at="2020-03-31T11:42:58Z" name="Default suite" finished-at="2020-03-31T11:44:22Z" duration-ms="84243">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="220636" started-at="2020-03-12T12:22:51Z" finished-at="2020-03-12T12:26:32Z">
-      <class name="riskmodule.pdca">
-        <test-method status="PASS" signature="Launch_Browser(java.lang.String)[pri:0, instance:riskmodule.pdca@402e37bc]" name="Launch_Browser" is-config="true" duration-ms="59747" started-at="2020-03-12T17:52:51Z" finished-at="2020-03-12T17:53:51Z">
+    <test started-at="2020-03-31T11:42:58Z" name="Default test" finished-at="2020-03-31T11:44:22Z" duration-ms="84243">
+      <class name="CenturiHomePageCases.Home_Page_Tests">
+        <test-method is-config="true" signature="Launch_Browser(java.lang.String)[pri:0, instance:CenturiHomePageCases.Home_Page_Tests@1838ccb8]" started-at="2020-03-31T17:12:58Z" name="Launch_Browser" finished-at="2020-03-31T17:14:15Z" duration-ms="76417" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,89 +18,41 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Launch_Browser -->
-        <test-method status="FAIL" signature="pdca_availability()[pri:0, instance:riskmodule.pdca@402e37bc]" name="pdca_availability" duration-ms="160135" started-at="2020-03-12T17:53:51Z" description="Verify whether user can able to Enable/Disable view of the PDCA icon in home page" finished-at="2020-03-12T17:56:31Z">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //*[contains(text(),'START')] (tried for 160 second(s) with 500 milliseconds interval)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[contains(text(),'START')] (tried for 160 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:138)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:234)
-	at riskmodule.pdca.pdca_availability(pdca.java:46)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:715)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:907)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1237)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:51)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:85)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1197)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1122)
-	at org.testng.TestNG.run(TestNG.java:1030)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(text(),'START')]"}
-  (Session info: chrome=80.0.3987.132)
-For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
-Build info: version: '4.0.0-alpha-4', revision: 'c2d955b49e'
-System info: host: 'DESKTOP-2M850KM', ip: '192.168.1.189', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.132, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\conevo\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:50178}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 3a2d3a877d0e0da0e093d662671b7369
-*** Element info: {Using=xpath, value=//*[contains(text(),'START')]}
-	at sun.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:333)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:451)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:394)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:325)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:205)
-	at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:201)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:211)
-	... 25 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+        <test-method signature="centuri_home_page_testcase_001()[pri:1, instance:CenturiHomePageCases.Home_Page_Tests@1838ccb8]" started-at="2020-03-31T17:14:15Z" name="centuri_home_page_testcase_001" description="Verify whether the home page contains functions icon" finished-at="2020-03-31T17:14:21Z" duration-ms="6666" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- pdca_availability -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:riskmodule.pdca@402e37bc]" name="tearDown" is-config="true" duration-ms="39" started-at="2020-03-12T17:56:31Z" finished-at="2020-03-12T17:56:31Z">
+        </test-method> <!-- centuri_home_page_testcase_001 -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:CenturiHomePageCases.Home_Page_Tests@1838ccb8]" started-at="2020-03-31T17:14:21Z" name="tearDown" finished-at="2020-03-31T17:14:21Z" duration-ms="25" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult: pdca_availability STATUS:FAILURE METHOD:pdca.pdca_availability()[pri:0, instance:riskmodule.pdca@402e37bc]]
-]]>
+                <![CDATA[[TestResult name=centuri_home_page_testcase_001 status=SUCCESS method=Home_Page_Tests.centuri_home_page_testcase_001()[pri:1, instance:CenturiHomePageCases.Home_Page_Tests@1838ccb8] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="endReport()[pri:0, instance:riskmodule.pdca@402e37bc]" name="endReport" is-config="true" duration-ms="612" started-at="2020-03-12T17:56:31Z" finished-at="2020-03-12T17:56:32Z">
+        <test-method signature="centuri_home_page_testcase_002()[pri:2, instance:CenturiHomePageCases.Home_Page_Tests@1838ccb8]" started-at="2020-03-31T17:14:21Z" name="centuri_home_page_testcase_002" description="Verify whether the home page cases running successfully" finished-at="2020-03-31T17:14:21Z" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- centuri_home_page_testcase_002 -->
+        <test-method is-config="true" signature="tearDown(org.testng.ITestResult)[pri:0, instance:CenturiHomePageCases.Home_Page_Tests@1838ccb8]" started-at="2020-03-31T17:14:21Z" name="tearDown" finished-at="2020-03-31T17:14:21Z" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=centuri_home_page_testcase_002 status=SUCCESS method=Home_Page_Tests.centuri_home_page_testcase_002()[pri:2, instance:CenturiHomePageCases.Home_Page_Tests@1838ccb8] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="endReport()[pri:0, instance:CenturiHomePageCases.Home_Page_Tests@1838ccb8]" started-at="2020-03-31T17:14:21Z" name="endReport" finished-at="2020-03-31T17:14:22Z" duration-ms="959" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
-      </class> <!-- riskmodule.pdca -->
+      </class> <!-- CenturiHomePageCases.Home_Page_Tests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 import com.assertthat.selenium_shutterbug.core.Shutterbug;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
@@ -38,7 +39,7 @@ import objectrepository.CenturiLoginPage;
 
 public class Centuri_Base {
 	public static  WebDriver driver;
-	WebDriverWait wait ;
+	public WebDriverWait wait ;
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
 	public ExtentTest test;
@@ -49,11 +50,12 @@ public void userlogin() throws InterruptedException {
 	 CenturiLoginPage clp = new CenturiLoginPage(driver, wait);
 	 	
 	 //clp.user().sendKeys("james");
-	 
+	// test.log(Status.PASS, "Login test started");
 	 //NOT USING THREAD AND WAITING FOR THE VISIBILITY OF ELEMENT
 	 clp.waitForVisibilityOfElementuser().sendKeys("james");
 	 //NOT USING THREAD AND WAITING FOR THE VISIBILITY OF ELEMENT
 	 clp.waitForVisibilityOfElementsignin().click();
+	 //test.log(Status.PASS,"Login successfull");
 	 
 	// clp.signinbutton().click();
 	}
@@ -92,6 +94,7 @@ public void userlogin() throws InterruptedException {
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\drivers\\chromedriver_80.exe");
 				//create chrome instance
 				driver = new ChromeDriver();
+				//test.log(Status.PASS, "Chrome browser launchd and centuri regression test started");
 			}
 			//Check if parameter passed as 'Edge'
 					else if(browser.equalsIgnoreCase("Edge")){
@@ -127,6 +130,8 @@ public void userlogin() throws InterruptedException {
 		extent.flush();
 	}
 	
+	
+   
 	@AfterMethod
 	public void tearDown(ITestResult result) {
 		if(result.getStatus()==ITestResult.FAILURE) {
