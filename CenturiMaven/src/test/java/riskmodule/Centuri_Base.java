@@ -146,7 +146,7 @@ public void userlogin() throws InterruptedException {
 			test.skip(m);
 		}else if (result.getStatus()==ITestResult.SUCCESS) {
 			String methodname = result.getMethod().getMethodName();
-			String logText = "<b>" + "TEST CASE: - " + methodname.toUpperCase() + "PASSED" + "</b>";	
+			String logText = "<b>" + "TEST CASE: - " + methodname.toUpperCase() +  "PASSED" + "</b>";	
 			Markup m = MarkupHelper.createLabel(logText, ExtentColor.GREEN);
 			test.pass(m);
 		}
