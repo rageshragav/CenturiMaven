@@ -168,7 +168,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test = extent.createTest("Homepage-Search #TC-3.3-002");
 		object();
 		//chp1 = new CenturiHomePage(driver,wait);
-		/*try {
+		try {
 		Thread.sleep(3000);
 		String getMainPageSearch = chp.searchMainText().getAttribute("innerText");
 		Assert.assertEquals( getMainPageSearch,searchMainText);
@@ -178,11 +178,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		{
 		test.log(Status.FAIL, "Search text above search field is not visible");
 		}
-		finally {}*/
-		String placeholderText = chp.searchplaceHolderText().getAttribute("placeholder");
-		System.out.println(placeholderText);
-		//Assert.assertEquals( placeholderText,searchMainText);
-		
+		finally {}
 	}
 	//@Test(description ="Verify whether the home page cases running successfully",priority=3)
 	public void centuri_home_page_testcase_003() throws InterruptedException, IOException {

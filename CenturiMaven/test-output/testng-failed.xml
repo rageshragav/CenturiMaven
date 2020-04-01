@@ -7,7 +7,8 @@
         <methods>
           <include name="Launch_Browser"/>
           <include name="centuri_home_page_testcase_002"/>
-          <include name="centuri_home_page_testcase_001"/>
+          <include name="endReport"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- CenturiHomePageCases.Home_Page_Tests -->
     </classes>
