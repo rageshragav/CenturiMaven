@@ -16,9 +16,22 @@ public class CenturiHomePage {
 		this.webDriverWait = webDriverWait;
 	}
 	
+//-----------------------------------------------------------------------------------------------------------------
+	
+	//Elements for creating NEW Document, Cases, Contracts, Form, Task
 	By newWorkFlow = By.xpath("//*[@class='fa fa-small fa-plus circled']");
+	By newDocumentCreateButton = By.xpath("//li[contains(text(),'Document')]");
 	
-	
+	public WebElement newWorkFlow() {
+		return driver.findElement(newWorkFlow);
+	}
+	public WebElement newDocumentCreateButton() {
+		return driver.findElement(newDocumentCreateButton);
+	}
+	public WebElement waitForVisibilityOfElementNewButton() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(newWorkFlow));
+		  }
+//-------------------------------------------------------------------------------------------------------------------
 	//Elements used in test case 001
 	By pdcaicon = By.xpath("//*[text()='PDCA']");
 	By featureIconsContainer = By.xpath("//*[@class='fixed-widgets']");
@@ -38,6 +51,7 @@ public class CenturiHomePage {
 	public WebElement waitForVisibilityOfElementpdcaicon() {
 		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(pdcaicon));
 	}
+	
 	
 	public WebElement pdcaicon() {
 		return driver.findElement(pdcaicon);

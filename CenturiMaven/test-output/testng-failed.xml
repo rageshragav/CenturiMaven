@@ -3,14 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="CenturiHomePageCases.Home_Page_Tests">
+      <class name="Centuri_POC.Add_New_Document">
         <methods>
           <include name="Launch_Browser"/>
-          <include name="centuri_home_page_testcase_002"/>
-          <include name="endReport"/>
-          <include name="tearDown"/>
+          <include name="centuriNewDocumentcreation"/>
         </methods>
-      </class> <!-- CenturiHomePageCases.Home_Page_Tests -->
+      </class> <!-- Centuri_POC.Add_New_Document -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
