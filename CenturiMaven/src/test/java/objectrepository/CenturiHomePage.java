@@ -16,6 +16,9 @@ public class CenturiHomePage {
 		this.webDriverWait = webDriverWait;
 	}
 	
+	By newWorkFlow = By.xpath("//*[@class='fa fa-small fa-plus circled']");
+	
+	
 	//Elements used in test case 001
 	By pdcaicon = By.xpath("//*[text()='PDCA']");
 	By featureIconsContainer = By.xpath("//*[@class='fixed-widgets']");
