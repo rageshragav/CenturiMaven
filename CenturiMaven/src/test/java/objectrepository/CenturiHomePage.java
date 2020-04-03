@@ -31,7 +31,7 @@ public class CenturiHomePage {
 	public WebElement waitForVisibilityOfElementNewButton() {
 		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(newWorkFlow));
 		  }
-//-------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//Elements used in test case 001
 	By pdcaicon = By.xpath("//*[text()='PDCA']");
 	By featureIconsContainer = By.xpath("//*[@class='fixed-widgets']");
@@ -93,6 +93,7 @@ public class CenturiHomePage {
 		return driver.findElement(helpIcon);
 	}
 	
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//Elements used in test case 002
 		By searchMainText = By.xpath("//*[@class='start-page']//div[@class='search-widget']//h2[@class='ng-binding']");
 		By searchplaceHolderText =By.xpath("//div[@class='start-page']//div[@class='search-table']");
@@ -102,4 +103,49 @@ public class CenturiHomePage {
 		public WebElement searchplaceHolderText() {
 			return driver.findElement(searchplaceHolderText);
 		}
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+		//Elements used in test case 003
+		By myWorkText = By.xpath("//a[contains(text(),'My work')]");
+		By othersWaitingText = By.xpath("//a[contains(text(),'Others waiting for me')]");
+		By myDeadlinesText = By.xpath("//a[contains(text(),'My deadlines')]");
+		By recentlyReadText = By.xpath("//a[contains(text(),'Recently read')]");
+		By incomingWorkText = By.xpath("//a[contains(text(),'Incoming work')]");
+		By freqReadText = By.xpath("//a[contains(text(),'Frequently read')]");
+		By newDocText = By.xpath("//a[contains(text(),'New Documents')]");
+		By myFavDocText = By.xpath("//a[contains(text(),'My favorite documents')]");
+		By notReadText = By.xpath("//a[contains(text(),'Not read')]");
+		By toAckText = By.xpath("//a[contains(text(),'To acknowledge')]");
+		
+		public WebElement myWorkText() {
+			return driver.findElement(myWorkText);
+		}
+		public WebElement othersWaitingText() {
+			return driver.findElement(othersWaitingText);
+		}
+		public WebElement myDeadlinesText() {
+			return driver.findElement(myDeadlinesText);
+		}
+		public WebElement recentlyReadText() {
+			return driver.findElement(recentlyReadText);
+		}
+		public WebElement incomingWorkText() {
+			return driver.findElement(incomingWorkText);
+		}
+		public WebElement freqReadText() {
+			return driver.findElement(freqReadText);
+		}
+		public WebElement newDocText() {
+			return driver.findElement(newDocText);
+		}
+		public WebElement myFavDocText() {
+			return driver.findElement(myFavDocText);
+		}
+		public WebElement notReadText() {
+			return driver.findElement(notReadText);
+		}
+		public WebElement toAckText() {
+			return driver.findElement(toAckText);
+		}
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 }

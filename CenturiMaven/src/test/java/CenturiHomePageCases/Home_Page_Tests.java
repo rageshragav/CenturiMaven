@@ -1,8 +1,11 @@
 package CenturiHomePageCases;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -28,11 +31,12 @@ public class Home_Page_Tests extends Centuri_Base {
 	String adminText = "Administrator";
 	String helpText = "Help";
 	
+	
 	String searchMainText = "Search in Centuri";
 	public void object() {
 		chp = new CenturiHomePage(driver,wait);
 	}
-	@Test(description ="Verify whether the home page contains functions icon",priority=1,enabled=false)
+	//@Test(description ="Verify whether the home page contains functions icon",priority=1,enabled=false)
 	public void centuri_home_page_testcase_001() throws InterruptedException, IOException {
 		//test.log(Status.PASS, "Centuri login successfully done");
 		test = extent.createTest("Homepage-Features #TC-3.3-001");
@@ -163,7 +167,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		}finally{}
 	
 	}
-	@Test(description ="Verify whether the home page cases running successfully",priority=2)
+	//@Test(description ="Verify whether the home page cases running successfully",priority=2)
 	public void centuri_home_page_testcase_002() throws InterruptedException, IOException {
 		test = extent.createTest("Homepage-Search #TC-3.3-002");
 		object();
@@ -180,12 +184,143 @@ public class Home_Page_Tests extends Centuri_Base {
 		}
 		finally {}
 	}
+	
+	String myWorkText = "My work";
+	String otherWaitText = "Others waiting for me";
+	String deadLineText = "My deadlines";
+	String recentReadText = "Recently read";
+	String incomingWorkText = "Incoming work";
+	String frequentReadText = "Frequently read";
+	String newDocText = "New Documents";
+	String myFavDoc = "My favorite documents";
+	String notReadText = "Not read";
+	String toAckText ="To acknowledge";
 	//@Test(description ="Verify whether the home page cases running successfully",priority=3)
 	public void centuri_home_page_testcase_003() throws InterruptedException, IOException {
 		test = extent.createTest("Homepage-Widgets #TC-3.3-003");
-		
+		object();
+		//chp1 = new CenturiHomePage(driver,wait);
+		try {
+		Thread.sleep(3000);
+		String getMyWorkText = chp.myWorkText().getText();
+		Assert.assertEquals( getMyWorkText,myWorkText);
+		test.log(Status.PASS, "'My Work' widget is visible");
+		}
+		catch (Exception e)
+		{
+		test.log(Status.FAIL, "'My Work' widget is not visible");
+		}
+		finally {}
+		try {
+		String getOthersWaitingText = chp.othersWaitingText().getText();
+		Assert.assertEquals( getOthersWaitingText,otherWaitText);
+		test.log(Status.PASS, "'Other waiting for work' widget is visible");
+		}
+		catch (Exception e)
+		{
+		test.log(Status.FAIL, "'Other waiting for work' widget is not visible");
+		}
+		finally {}
+		try {
+		String getDeadLineText = chp.myDeadlinesText().getText();
+		Assert.assertEquals( getDeadLineText,deadLineText);
+		test.log(Status.PASS, "'My deadlines' widget is visible");
+		}
+		catch (Exception e)
+		{
+		test.log(Status.FAIL, "'My deadlines' widget is not visible");
+		}
+		finally {}
+		try {
+		String getRecentReadText = chp.recentlyReadText().getText();
+		Assert.assertEquals( getRecentReadText,recentReadText);
+		test.log(Status.PASS, "'Recently read' widget is visible");
+		}
+		catch (Exception e)
+		{
+		test.log(Status.FAIL, "'Recently read' widget is not visible");
+		}
+		finally {}
+		try {
+		String getincomingText = chp.incomingWorkText().getText();
+		Assert.assertEquals( getincomingText,incomingWorkText);
+		test.log(Status.PASS, "'Incoming work' widget is visible");
+		}
+		catch (Exception e)
+		{
+		test.log(Status.FAIL, "'Incoming work' widget is not visible");
+		}
+		finally {}	
+		try {
+		String getfreqReadText = chp.freqReadText().getText();
+		Assert.assertEquals( getfreqReadText,frequentReadText);
+		test.log(Status.PASS, "'Frequently read' widget is visible");
+		}
+		catch (Exception e)
+		{
+		test.log(Status.FAIL, "'Frequently read' widget is not visible");
+		}
+		finally {}	
+		try {
+		String getNewDocText = chp.newDocText().getText();
+		Assert.assertEquals( getNewDocText,newDocText);
+		test.log(Status.PASS, "'New Documents' widget is visible");
+		}
+		catch (Exception e)
+		{
+		test.log(Status.FAIL, "'New Documents' widget is not visible");
+		}
+		finally {}
+		try {
+		String getFavDocText = chp.myFavDocText().getText();
+		Assert.assertEquals( getFavDocText,myFavDoc);
+		test.log(Status.PASS, "'My favorite documents' widget is visible");
+		}
+		catch (Exception e)
+		{
+		test.log(Status.FAIL, "'My favorite documents' widget is not visible");
+		}
+		finally {}
+		try {
+		String getnotReadText = chp.notReadText().getText();
+		Assert.assertEquals( getnotReadText,notReadText);
+		test.log(Status.PASS, "'Not read' widget is visible");
+		}
+		catch (Exception e)
+		{
+		test.log(Status.FAIL, "'Not read' widget is not visible");
+		}
+		finally {}
+		try {
+		String getAckText = chp.toAckText().getText();
+		Assert.assertEquals( getAckText,toAckText);
+		test.log(Status.PASS, "'To acknowledge' widget is visible");
+		}
+		catch (Exception e)
+		{
+		test.log(Status.FAIL, "'To acknowledge' widget is not visible");
+		}
+		finally {}
 	}
+	@Test(description ="Verify whether the home page cases running successfully",priority=4)
+	public void centuri_home_page_testcase_004() throws InterruptedException, IOException {
+		test = extent.createTest("Homepage-MiniIcons #TC-3.3-004");
+		object();
+	Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@class='ng-isolate-scope']//menu")).click();
+		List<WebElement> links = driver.findElements(By.className("module-navigator"));
 
+		Iterator<WebElement> iter = links.iterator();
+
+		while(iter.hasNext()) {
+		    WebElement we = iter.next();
+
+		    if (we.getText().equals("Start")) {
+		        System.out.println("PASS");
+		    // do something in else perhaps
+		    }
+		}
+	}
 }
 
 
