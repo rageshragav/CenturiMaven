@@ -1,10 +1,12 @@
 package CenturiHomePageCases;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -36,7 +38,7 @@ public class Home_Page_Tests extends Centuri_Base {
 	public void object() {
 		chp = new CenturiHomePage(driver,wait);
 	}
-	//@Test(description ="Verify whether the home page contains functions icon",priority=1,enabled=false)
+	@Test(description ="Verify whether the home page contains functions icon",priority=1)
 	public void centuri_home_page_testcase_001() throws InterruptedException, IOException {
 		//test.log(Status.PASS, "Centuri login successfully done");
 		test = extent.createTest("Homepage-Features #TC-3.3-001");
@@ -68,11 +70,14 @@ public class Home_Page_Tests extends Centuri_Base {
 		
 		//Code To Check whether the PORTAL function icon is visible
 		try {
+			//test.createNode("Checking the PORTAL icon on home page");
 			String getPortal = chp.portalIcon().getAttribute("innerText");
 			Assert.assertEquals( getPortal,portalText);
+			//Assert.assertTrue(true);
 			test.log(Status.PASS, "Under function icons - The PORTAL icon is visible");
 			}
 		catch(Exception e) {
+			//Assert.assertTrue(false);
 			test.log(Status.FAIL, "Under function icons - The PORTAL icon is not visible");
 		}finally{}
 		
@@ -167,10 +172,11 @@ public class Home_Page_Tests extends Centuri_Base {
 		}finally{}
 	
 	}
-	//@Test(description ="Verify whether the home page cases running successfully",priority=2)
+	@Test(description ="Verify whether the home page contains search field",priority=2)
 	public void centuri_home_page_testcase_002() throws InterruptedException, IOException {
 		test = extent.createTest("Homepage-Search #TC-3.3-002");
 		object();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='fixed-widgets']")));
 		//chp1 = new CenturiHomePage(driver,wait);
 		try {
 		Thread.sleep(3000);
@@ -195,10 +201,11 @@ public class Home_Page_Tests extends Centuri_Base {
 	String myFavDoc = "My favorite documents";
 	String notReadText = "Not read";
 	String toAckText ="To acknowledge";
-	//@Test(description ="Verify whether the home page cases running successfully",priority=3)
+	@Test(description ="Verify whether the home page contains mandatory widgets",priority=3)
 	public void centuri_home_page_testcase_003() throws InterruptedException, IOException {
 		test = extent.createTest("Homepage-Widgets #TC-3.3-003");
 		object();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='fixed-widgets']")));
 		//chp1 = new CenturiHomePage(driver,wait);
 		try {
 		Thread.sleep(3000);
@@ -302,25 +309,91 @@ public class Home_Page_Tests extends Centuri_Base {
 		}
 		finally {}
 	}
-	@Test(description ="Verify whether the home page cases running successfully",priority=4)
+	String miniStartIcon = "START";
+	@Test(description ="Verify whether the home page (START)Popup contains all the MiniIcons",priority=4)
 	public void centuri_home_page_testcase_004() throws InterruptedException, IOException {
 		test = extent.createTest("Homepage-MiniIcons #TC-3.3-004");
 		object();
-	Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@class='ng-isolate-scope']//menu")).click();
-		List<WebElement> links = driver.findElements(By.className("module-navigator"));
-
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='fixed-widgets']")));
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[contains(text(),'START')]")).click();
+		Thread.sleep(1500);
+		try {
+			String getSetText = chp.settingsText().getText();
+			test.createNode("Checking SETTINGS Button");
+			Assert.assertEquals( getSetText,"SETTINGS");
+			Assert.assertTrue(true);
+			//test.log(Status.PASS, "Settings option is visible");
+			}
+			catch (Exception e)
+			{
+				Assert.assertFalse(false);
+			//test.log(Status.FAIL, "Settings option is not visible");
+			}
+			finally {}
+		 
+		try {
+			String getSignoutText = chp.signoutText().getText();
+			Assert.assertEquals( getSignoutText,"SIGN OUT");
+			test.log(Status.PASS, "Signout button is visible");
+			}
+			catch (Exception e)
+			{
+			test.log(Status.FAIL, "Signout button is not visible");
+			}
+			finally {}
+		try {
+			String getRefreshText = chp.refreshText().getText();
+			Assert.assertEquals( getRefreshText,"REFRESH");
+			test.log(Status.PASS, "Refresh button is visible");
+			}
+			catch (Exception e)
+			{
+			test.log(Status.FAIL, "Refresh button is not visible");
+			}
+			finally {}
+		WebElement menuOptions = driver.findElement(By.xpath("//div[@class='main-menu ng-isolate-scope']//ul"));
+		List<WebElement> links = menuOptions.findElements(By.xpath("//div[@class='main-menu ng-isolate-scope']//li"));
+		 List<String> all_elements_text=new ArrayList<>();
+		for (int i = 0; i < links.size(); i++){ 
+			all_elements_text.add(links.get(i).getAttribute("innerText"));
+		}
+		System.out.println(all_elements_text);
+		if( all_elements_text.contains("START") &&
+			all_elements_text.contains("PORTAL") &&
+			all_elements_text.contains("READ") &&
+			all_elements_text.contains("CONTRACTS") &&
+			all_elements_text.contains("CASES") &&
+			all_elements_text.contains("PDCA") &&
+			all_elements_text.contains("SEARCH") &&
+			all_elements_text.contains("TODO") &&
+			all_elements_text.contains("REPORTS") &&
+			all_elements_text.contains("ADMINISTRATOR") &&
+			all_elements_text.contains("HELP")) {
+			test.log(Status.PASS, "All Mini Functions are visible");
+		} else {
+			test.log(Status.FAIL, "All Mini Functions are not visible");
+		}
+		
+		
+		
+		
+		
+		
+		//*[contains(text(),'Settings')]
+		/*List<WebElement> links = driver.findElements(By.xpath("//div[@class='main-menu ng-isolate-scope']"));
 		Iterator<WebElement> iter = links.iterator();
-
 		while(iter.hasNext()) {
 		    WebElement we = iter.next();
-
-		    if (we.getText().equals("Start")) {
+		    String req = we.getText();
+		    System.out.println(req);
+		    if (req.equals("Start")) {
 		        System.out.println("PASS");
 		    // do something in else perhaps
 		    }
-		}
+		}*/
 	}
 }
+
 
 

@@ -148,4 +148,16 @@ public class CenturiHomePage {
 			return driver.findElement(toAckText);
 		}
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		By settingsText = By.xpath("//*[contains(text(),'Settings')]");
+		By signoutText = By.xpath("//*[contains(text(),'Sign out')]");
+		By refreshText = By.xpath("//*[contains(text(),'Refresh')]");
+		public WebElement settingsText() {
+			return driver.findElement(settingsText);
+		}
+		public WebElement signoutText() {
+			return driver.findElement(signoutText);
+		}
+		public WebElement refreshText() {
+			return driver.findElement(refreshText);
+		}
 }

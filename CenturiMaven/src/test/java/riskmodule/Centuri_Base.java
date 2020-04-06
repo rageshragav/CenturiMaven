@@ -1,6 +1,14 @@
 package riskmodule;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -69,7 +77,7 @@ public void userlogin() throws InterruptedException {
 		htmlReporter.config().setEncoding("utf-8");
 		htmlReporter.config().setDocumentTitle("Centuri Automation Report");
 		htmlReporter.config().setReportName("Automation Test Results");
-		htmlReporter.config().setTheme(Theme.STANDARD);
+		htmlReporter.config().setTheme(Theme.DARK);
 		
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
@@ -133,8 +141,25 @@ public void userlogin() throws InterruptedException {
 	
    
 	@AfterMethod
-	public void tearDown(ITestResult result) {
+	public void tearDown(ITestResult result) throws IOException {
 		if(result.getStatus()==ITestResult.FAILURE) {
+			test.log(Status.FAIL, "TEST CASE FAILED IS " + result.getName());
+			test.log(Status.FAIL, "TEST CASE FAILED IS " + result.getThrowable());
+			
+			String screenshotPath = Centuri_Base.getScreenshot(driver, result.getName());
+			test.addScreenCaptureFromPath(screenshotPath);
+			
+		}else if(result.getStatus()==ITestResult.SKIP) {
+			test.log(Status.SKIP, "TEST CASE SKIPPED IS " + result.getName());
+		}else if (result.getStatus()==ITestResult.SUCCESS) {
+			test.log(Status.PASS, "TEST CASE PASSED IS " + result.getName());
+		}
+		
+		
+		
+		
+		
+		/*if(result.getStatus()==ITestResult.FAILURE) {
 			String methodname = result.getMethod().getMethodName();
 			String logText = "<b>" + "TEST CASE: - " + methodname.toUpperCase() + "FAILED" + "</b>";	
 			Markup m = MarkupHelper.createLabel(logText, ExtentColor.RED);
@@ -149,9 +174,20 @@ public void userlogin() throws InterruptedException {
 			String logText = "<b>" + "TEST CASE: - " + methodname.toUpperCase() +  "PASSED" + "</b>";	
 			Markup m = MarkupHelper.createLabel(logText, ExtentColor.GREEN);
 			test.pass(m);
-		}
+		}*/
 		
 	}
+	public static String getScreenshot(WebDriver driver,String screenshotName) throws IOException {
+		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		
+		String destination = System.getProperty("user.dir") + "/Screenshots/" + screenshotName + dateName + ".png";
+		File finalDestination = new File(destination);
+		FileUtils.copyFile(source, finalDestination);
+		return destination;
+		
+	} 
 /*@Test(description ="Verify whether user can able to login into the application",priority=1)
 @Description("Verify whether user can able to login into the application")
 @Epic("Sprint 84")
