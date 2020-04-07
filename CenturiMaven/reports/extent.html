@@ -44,7 +44,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Apr 6, 2020 06:12:23 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Apr 7, 2020 06:02:41 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -60,7 +60,6 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
-					<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -96,31 +95,17 @@
 	</section>
 <div id='test-view-charts' class='subview-full'>
     <div id='charts-row' class='row nm-v nm-h'>
-        <div class='col s12 m6 l6 np-h'>
+        <div class='col s12 m12 l12 np-h'>
             <div class='card-panel nm-v'>
                 <div class='left panel-name'>Tests</div>
                 <div class='chart-box' style="max-height:94px;">
                     <canvas id='parent-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>2</span> test(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> test(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='50%'>2</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
-                </div>
-            </div>
-        </div>
-        <div class='col s12 m6 l6 np-h'>
-            <div class='card-panel nm-v'>
-                <div class='left panel-name'>Steps</div>
-                <div class='chart-box' style="max-height:94px;">
-                    <canvas id='child-analysis' width='90' height='70'></canvas>
-                </div>
-                <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> step(s) passed</span>
-                </div>
-                <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -138,97 +123,17 @@
 </div>	<div class='subview-left left'>
 		<div class='view-summary'>
 			<ul id='test-collection' class='test-collection'>
-				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='1'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Homepage-Features #TC-3.3-001</span>
-						<span class='test-time'>Apr 6, 2020 06:13:59 PM</span>
-						<span class='test-status right fail'>fail</span>
-					</div>
-					<div class='test-content hide'>
-<div class='test-time-info'>
-	<span class='label start-time'>Apr 6, 2020 06:13:59 PM</span>
-	<span class='label end-time'>Apr 6, 2020 06:13:59 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
-</div>
-<div class='test-steps'>
-	<table class='bordered table-results'>
-		<thead>
-			<tr>
-				<th>Status</th>
-				<th>Timestamp</th>
-				<th>Details</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:13:53 PM</td>
-				<td class='step-details'>
-						User login is successfull
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:13:59 PM</td>
-				<td class='step-details'>
-						The functions icons are visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:13:59 PM</td>
-				<td class='step-details'>
-						Under function icons - The START icon is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='fail'>
-				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-				<td class='timestamp'>6:14:00 PM</td>
-				<td class='step-details'>
-						TEST CASE FAILED IS centuri_home_page_testcase_001
-					
-				</td>
-			</tr>
-			<tr class='log' status='fail'>
-				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-				<td class='timestamp'>6:14:00 PM</td>
-				<td class='step-details'>
-						TEST CASE FAILED IS java.lang.AssertionError: expected [true] but found [false]
-					
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-<ul class='collapsible node-list' data-collapsible='accordion'>
-	<li class='node level-1 leaf pass' status='pass' test-id='2'>
-		<div class='collapsible-header'>
-			<div class='node-name'>Checking the PORTAL icon on home page</div>
-			<span class='node-time'>Apr 6, 2020 06:13:59 PM</span>
-			&middot; <span class='node-duration'>0h 0m 0s+0ms</span>
-			<span class='test-status right pass'>pass</span>
-		</div>
-	</li>
-</ul>
-						<ul class='screenshots'>
-							<li><img class='r-img' onerror='this.style.display="none"' data-featherlight='C:\Users\BALAJI\git\CenturiMaven\CenturiMaven/Screenshots/centuri_home_page_testcase_00120200406061400.png' src='C:\Users\BALAJI\git\CenturiMaven\CenturiMaven/Screenshots/centuri_home_page_testcase_00120200406061400.png' data-src='C:\Users\BALAJI\git\CenturiMaven\CenturiMaven/Screenshots/centuri_home_page_testcase_00120200406061400.png'></li>
-						</ul>
-					</div>
-				</li>
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
-					<div class='test-heading'>
-						<span class='test-name'>Homepage-Search #TC-3.3-002</span>
-						<span class='test-time'>Apr 6, 2020 06:14:00 PM</span>
+						<span class='test-name'>Publish document</span>
+						<span class='test-time'>Apr 7, 2020 06:03:47 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 6, 2020 06:14:00 PM</span>
-	<span class='label end-time'>Apr 6, 2020 06:14:03 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 3s+176ms</span>
+	<span class='label start-time'>Apr 7, 2020 06:03:47 PM</span>
+	<span class='label end-time'>Apr 7, 2020 06:05:38 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 50s+695ms</span>
 </div>
 <div class='test-steps'>
 	<table class='bordered table-results'>
@@ -242,207 +147,15 @@
 		<tbody>
 			<tr class='log' status='pass'>
 				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:03 PM</td>
+				<td class='timestamp'>6:05:38 PM</td>
 				<td class='step-details'>
-						Search text above search field is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:03 PM</td>
-				<td class='step-details'>
-						TEST CASE PASSED IS centuri_home_page_testcase_002
+						TEST CASE PASSED IS publishNewDocument
 					
 				</td>
 			</tr>
 		</tbody>
 	</table>
 </div>
-					</div>
-				</li>
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
-					<div class='test-heading'>
-						<span class='test-name'>Homepage-Widgets #TC-3.3-003</span>
-						<span class='test-time'>Apr 6, 2020 06:14:04 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='test-time-info'>
-	<span class='label start-time'>Apr 6, 2020 06:14:04 PM</span>
-	<span class='label end-time'>Apr 6, 2020 06:14:07 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 3s+475ms</span>
-</div>
-<div class='test-steps'>
-	<table class='bordered table-results'>
-		<thead>
-			<tr>
-				<th>Status</th>
-				<th>Timestamp</th>
-				<th>Details</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						'My Work' widget is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						'Other waiting for work' widget is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						'My deadlines' widget is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						'Recently read' widget is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						'Incoming work' widget is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						'Frequently read' widget is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						'New Documents' widget is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						'My favorite documents' widget is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						'Not read' widget is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						'To acknowledge' widget is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:07 PM</td>
-				<td class='step-details'>
-						TEST CASE PASSED IS centuri_home_page_testcase_003
-					
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-					</div>
-				</li>
-				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='5'>
-					<div class='test-heading'>
-						<span class='test-name'>Homepage-MiniIcons #TC-3.3-004</span>
-						<span class='test-time'>Apr 6, 2020 06:14:11 PM</span>
-						<span class='test-status right fail'>fail</span>
-					</div>
-					<div class='test-content hide'>
-<div class='test-time-info'>
-	<span class='label start-time'>Apr 6, 2020 06:14:11 PM</span>
-	<span class='label end-time'>Apr 6, 2020 06:14:11 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+1ms</span>
-</div>
-<div class='test-steps'>
-	<table class='bordered table-results'>
-		<thead>
-			<tr>
-				<th>Status</th>
-				<th>Timestamp</th>
-				<th>Details</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:11 PM</td>
-				<td class='step-details'>
-						Signout button is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:11 PM</td>
-				<td class='step-details'>
-						Refresh button is visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='fail'>
-				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
-				<td class='timestamp'>6:14:11 PM</td>
-				<td class='step-details'>
-						All Mini Functions are not visible
-					
-				</td>
-			</tr>
-			<tr class='log' status='pass'>
-				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-				<td class='timestamp'>6:14:11 PM</td>
-				<td class='step-details'>
-						TEST CASE PASSED IS centuri_home_page_testcase_004
-					
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-<ul class='collapsible node-list' data-collapsible='accordion'>
-	<li class='node level-1 leaf pass' status='pass' test-id='6'>
-		<div class='collapsible-header'>
-			<div class='node-name'>Checking SETTINGS Button</div>
-			<span class='node-time'>Apr 6, 2020 06:14:11 PM</span>
-			&middot; <span class='node-duration'>0h 0m 0s+1ms</span>
-			<span class='test-status right pass'>pass</span>
-		</div>
-	</li>
-</ul>
 					</div>
 				</li>
 			</ul>
@@ -473,31 +186,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>4</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>2</div>
+					<div class='panel-lead'>0</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Apr 6, 2020 06:12:23 PM</div>
+					<div class='panel-lead'>Apr 7, 2020 06:02:41 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Apr 6, 2020 06:14:11 PM</div>
+			 		<div class='panel-lead'>Apr 7, 2020 06:05:38 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 1m 47s+651ms</div>
+					<div class='panel-lead'>0h 2m 56s+932ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -532,16 +245,16 @@
 		<!-- container -->
 		<script>
 			var statusGroup = {
-                parentCount: 4,
-				passParent: 2,
-				failParent: 2,
+                parentCount: 1,
+				passParent: 1,
+				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 2,
-				childCount: 2,
-				passChild: 2,
+				exceptionsParent: 0,
+				childCount: 0,
+				passChild: 0,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
@@ -564,7 +277,7 @@
 		</script>
 		<script>
 			var timeline = {
-			        "Homepage-Features #TC-3.3-001":0,"Homepage-Search #TC-3.3-002":3.176,"Homepage-Widgets #TC-3.3-003":3.475,"Homepage-MiniIcons #TC-3.3-004":0.001
+			        "Publish document":110.695
 			};
 		</script>
 		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>

@@ -177,7 +177,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test = extent.createTest("Homepage-Search #TC-3.3-002");
 		object();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='fixed-widgets']")));
-		//chp1 = new CenturiHomePage(driver,wait);
+		//Code To Check whether the search function text is visible
 		try {
 		Thread.sleep(3000);
 		String getMainPageSearch = chp.searchMainText().getAttribute("innerText");
@@ -206,7 +206,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test = extent.createTest("Homepage-Widgets #TC-3.3-003");
 		object();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='fixed-widgets']")));
-		//chp1 = new CenturiHomePage(driver,wait);
+		//Code To Check whether the My work widget is visible
 		try {
 		Thread.sleep(3000);
 		String getMyWorkText = chp.myWorkText().getText();
@@ -218,6 +218,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test.log(Status.FAIL, "'My Work' widget is not visible");
 		}
 		finally {}
+		//Code To Check whether OthersWaitingForWork widget is visible
 		try {
 		String getOthersWaitingText = chp.othersWaitingText().getText();
 		Assert.assertEquals( getOthersWaitingText,otherWaitText);
@@ -228,6 +229,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test.log(Status.FAIL, "'Other waiting for work' widget is not visible");
 		}
 		finally {}
+		//Code To Check whether the My Deadlines widget is visible
 		try {
 		String getDeadLineText = chp.myDeadlinesText().getText();
 		Assert.assertEquals( getDeadLineText,deadLineText);
@@ -238,6 +240,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test.log(Status.FAIL, "'My deadlines' widget is not visible");
 		}
 		finally {}
+		//Code To Check whether the Recently Read widget is visible
 		try {
 		String getRecentReadText = chp.recentlyReadText().getText();
 		Assert.assertEquals( getRecentReadText,recentReadText);
@@ -248,6 +251,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test.log(Status.FAIL, "'Recently read' widget is not visible");
 		}
 		finally {}
+		//Code To Check whether the Incoming Work widget is visible
 		try {
 		String getincomingText = chp.incomingWorkText().getText();
 		Assert.assertEquals( getincomingText,incomingWorkText);
@@ -258,6 +262,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test.log(Status.FAIL, "'Incoming work' widget is not visible");
 		}
 		finally {}	
+		//Code To Check whether the Frequently Read widget is visible
 		try {
 		String getfreqReadText = chp.freqReadText().getText();
 		Assert.assertEquals( getfreqReadText,frequentReadText);
@@ -268,6 +273,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test.log(Status.FAIL, "'Frequently read' widget is not visible");
 		}
 		finally {}	
+		//Code To Check whether the New Documents widget is visible
 		try {
 		String getNewDocText = chp.newDocText().getText();
 		Assert.assertEquals( getNewDocText,newDocText);
@@ -278,6 +284,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test.log(Status.FAIL, "'New Documents' widget is not visible");
 		}
 		finally {}
+		//Code To Check whether the My favorite documents widget is visible
 		try {
 		String getFavDocText = chp.myFavDocText().getText();
 		Assert.assertEquals( getFavDocText,myFavDoc);
@@ -288,6 +295,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test.log(Status.FAIL, "'My favorite documents' widget is not visible");
 		}
 		finally {}
+		//Code To Check whether the Not read widget is visible
 		try {
 		String getnotReadText = chp.notReadText().getText();
 		Assert.assertEquals( getnotReadText,notReadText);
@@ -298,6 +306,7 @@ public class Home_Page_Tests extends Centuri_Base {
 		test.log(Status.FAIL, "'Not read' widget is not visible");
 		}
 		finally {}
+		//Code To Check whether the To Acknowledge widget is visible
 		try {
 		String getAckText = chp.toAckText().getText();
 		Assert.assertEquals( getAckText,toAckText);
@@ -314,13 +323,15 @@ public class Home_Page_Tests extends Centuri_Base {
 	public void centuri_home_page_testcase_004() throws InterruptedException, IOException {
 		test = extent.createTest("Homepage-MiniIcons #TC-3.3-004");
 		object();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='fixed-widgets']")));
+		
 		Thread.sleep(2000);
+		//Code to click START at the top right corner of the screen
 		driver.findElement(By.xpath("//*[contains(text(),'START')]")).click();
 		Thread.sleep(1500);
+		
+		//Code to check whether SETTINGS button is visible
 		try {
 			String getSetText = chp.settingsText().getText();
-			test.createNode("Checking SETTINGS Button");
 			Assert.assertEquals( getSetText,"SETTINGS");
 			Assert.assertTrue(true);
 			//test.log(Status.PASS, "Settings option is visible");
@@ -331,7 +342,7 @@ public class Home_Page_Tests extends Centuri_Base {
 			//test.log(Status.FAIL, "Settings option is not visible");
 			}
 			finally {}
-		 
+		//Code to check whether SIGN OUT button is visible
 		try {
 			String getSignoutText = chp.signoutText().getText();
 			Assert.assertEquals( getSignoutText,"SIGN OUT");
@@ -342,6 +353,7 @@ public class Home_Page_Tests extends Centuri_Base {
 			test.log(Status.FAIL, "Signout button is not visible");
 			}
 			finally {}
+		//Code to check whether REFRESH button is visible
 		try {
 			String getRefreshText = chp.refreshText().getText();
 			Assert.assertEquals( getRefreshText,"REFRESH");
@@ -352,6 +364,7 @@ public class Home_Page_Tests extends Centuri_Base {
 			test.log(Status.FAIL, "Refresh button is not visible");
 			}
 			finally {}
+		//Code to check whether all the mini function icons are visible
 		WebElement menuOptions = driver.findElement(By.xpath("//div[@class='main-menu ng-isolate-scope']//ul"));
 		List<WebElement> links = menuOptions.findElements(By.xpath("//div[@class='main-menu ng-isolate-scope']//li"));
 		 List<String> all_elements_text=new ArrayList<>();
