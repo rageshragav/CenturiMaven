@@ -25,7 +25,7 @@ public class CenturiNewDocuemntPage {
 	By selectDocTag = By.xpath("//*[@class='treeview-checkbox ng-scope ng-isolate-scope']//*[local-name()='svg']");
 	By completeDocCreationButton = By.xpath("//li[@class='ng-scope']//*[contains(text(),'Complete')]");
 	By downloadDocumentButton = By.xpath("//button[@id='action']");
-	By todoNavigation = By.xpath("//*[contains(text(),'No')]");
+	By todoNavigation = By.xpath("//*[contains(text(),'Yes')]");
 	public WebElement selectWorkUnitCenturi() {
 		return driver.findElement(selectWorkUnitCenturi);
 	}

@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\BALAJI\AppData\Local\Temp\testng-eclipse--879240626\testng-customsuite.xml</span>
+                    <span>C:\Users\BALAJI\AppData\Local\Temp\testng-eclipse-592212693\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -102,7 +102,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="CenturiHomePageCases.Home_Page_Tests" class="method navigator-link" hash-for-method="centuri_home_page_testcase_001">centuri_home_page_testcase_001</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Centuri_POC.Add_New_Document" class="method navigator-link" hash-for-method="publishNewDocument">publishNewDocument</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -116,17 +116,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="CenturiHomePageCases.Home_Page_Tests" class="method navigator-link" hash-for-method="centuri_home_page_testcase_002">centuri_home_page_testcase_002</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="CenturiHomePageCases.Home_Page_Tests" class="method navigator-link" hash-for-method="centuri_home_page_testcase_003">centuri_home_page_testcase_003</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="CenturiHomePageCases.Home_Page_Tests" class="method navigator-link" hash-for-method="centuri_home_page_testcase_004">centuri_home_page_testcase_004</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="Centuri_POC.Add_New_Document" class="method navigator-link" hash-for-method="centuriNewDocumentcreation">centuriNewDocumentcreation</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -144,20 +134,36 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">CenturiHomePageCases.Home_Page_Tests</span>
+              <span class="class-name">Centuri_POC.Add_New_Document</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="centuri_home_page_testcase_001">
-                  </a> <!-- centuri_home_page_testcase_001 -->
-                  <span class="method-name">centuri_home_page_testcase_001</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:513)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at CenturiHomePageCases.Home_Page_Tests.centuri_home_page_testcase_001(Home_Page_Tests.java:80)
+                  <a name="publishNewDocument">
+                  </a> <!-- publishNewDocument -->
+                  <span class="method-name">publishNewDocument</span>
+                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=80.0.3987.163)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
+Build info: version: &apos;4.0.0-alpha-4&apos;, revision: &apos;c2d955b49e&apos;
+System info: host: &apos;DESKTOP-Q7T0E74&apos;, ip: &apos;192.168.137.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;13.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.163, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\BALAJI\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:60009}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 8e150b53eec846992bc2b29957cb9e28
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:316)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)
+	at Centuri_POC.Add_New_Document.publishNewDocument(Add_New_Document.java:103)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -186,7 +192,7 @@
 
 </div> <!-- stack-trace -->
                   <em>
-(Verify whether the home page contains functions icon)                  </em>
+(Adding a new document)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -194,34 +200,16 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">CenturiHomePageCases.Home_Page_Tests</span>
+              <span class="class-name">Centuri_POC.Add_New_Document</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="centuri_home_page_testcase_002">
-                  </a> <!-- centuri_home_page_testcase_002 -->
-                  <span class="method-name">centuri_home_page_testcase_002</span>
+                  <a name="centuriNewDocumentcreation">
+                  </a> <!-- centuriNewDocumentcreation -->
+                  <span class="method-name">centuriNewDocumentcreation</span>
                   <em>
-(Verify whether the home page contains search field)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="centuri_home_page_testcase_003">
-                  </a> <!-- centuri_home_page_testcase_003 -->
-                  <span class="method-name">centuri_home_page_testcase_003</span>
-                  <em>
-(Verify whether the home page contains mandatory widgets)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="centuri_home_page_testcase_004">
-                  </a> <!-- centuri_home_page_testcase_004 -->
-                  <span class="method-name">centuri_home_page_testcase_004</span>
-                  <em>
-(Verify whether the home page (START)Popup contains all the MiniIcons)                  </em>
+(Adding a new document)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -229,7 +217,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\BALAJI\AppData\Local\Temp\testng-eclipse--879240626\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\BALAJI\AppData\Local\Temp\testng-eclipse-592212693\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -238,7 +226,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;CenturiHomePageCases.Home_Page_Tests&quot;/&gt;
+      &lt;class name=&quot;Centuri_POC.Add_New_Document&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -278,28 +266,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'centuri_home_page_testcase_001')
-data.setCell(0, 2, 'CenturiHomePageCases.Home_Page_Tests')
-data.setCell(0, 3, 7017);
+data.setCell(0, 1, 'publishNewDocument')
+data.setCell(0, 2, 'Centuri_POC.Add_New_Document')
+data.setCell(0, 3, 65640);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'centuri_home_page_testcase_004')
-data.setCell(1, 2, 'CenturiHomePageCases.Home_Page_Tests')
-data.setCell(1, 3, 4151);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'centuri_home_page_testcase_003')
-data.setCell(2, 2, 'CenturiHomePageCases.Home_Page_Tests')
-data.setCell(2, 3, 3479);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'centuri_home_page_testcase_002')
-data.setCell(3, 2, 'CenturiHomePageCases.Home_Page_Tests')
-data.setCell(3, 3, 3175);
+data.setCell(1, 1, 'centuriNewDocumentcreation')
+data.setCell(1, 2, 'Centuri_POC.Add_New_Document')
+data.setCell(1, 3, 41134);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 17 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -325,48 +305,32 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">CenturiHomePageCases.Home_Page_Tests</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Centuri_POC.Add_New_Document</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">Launch_Browser(Chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
+                <span class="method-name">centuriNewDocumentcreation</span>
+                <span class="method-start">103628 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=centuriNewDocumentcreation status=SUCCESS method=Add_New_Document.centuriNewDocumen...)</span>
+                <span class="method-start">144944 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">centuri_home_page_testcase_001</span>
-                <span class="method-start">89095 ms</span>
+                <span class="method-name">publishNewDocument</span>
+                <span class="method-start">144998 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=centuri_home_page_testcase_001 status=FAILURE method=Home_Page_Tests.centuri_home_p...)</span>
-                <span class="method-start">96326 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="test-method">
-                <span class="method-name">centuri_home_page_testcase_002</span>
-                <span class="method-start">96938 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=centuri_home_page_testcase_002 status=SUCCESS method=Home_Page_Tests.centuri_home_p...)</span>
-                <span class="method-start">100120 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="test-method">
-                <span class="method-name">centuri_home_page_testcase_003</span>
-                <span class="method-start">100123 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=centuri_home_page_testcase_003 status=SUCCESS method=Home_Page_Tests.centuri_home_p...)</span>
-                <span class="method-start">103606 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="test-method">
-                <span class="method-name">centuri_home_page_testcase_004</span>
-                <span class="method-start">103609 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=centuri_home_page_testcase_004 status=SUCCESS method=Home_Page_Tests.centuri_home_p...)</span>
-                <span class="method-start">107765 ms</span>
+                <span class="method-name">tearDown([TestResult name=publishNewDocument status=FAILURE method=Add_New_Document.publishNewDocument()[pri:...)</span>
+                <span class="method-start">210654 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">endReport</span>
-                <span class="method-start">107769 ms</span>
+                <span class="method-start">211035 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
