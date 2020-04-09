@@ -6,6 +6,7 @@
       <class name="Centuri_POC.Add_New_Document">
         <methods>
           <include name="Launch_Browser"/>
+          <include name="archiveDocument"/>
           <include name="endReport"/>
           <include name="publishNewDocument"/>
           <include name="tearDown"/>

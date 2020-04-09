@@ -37,16 +37,16 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-
-import io.qameta.allure.Description;
+import objectrepository.CenturiAdminPage;
+import objectrepository.CenturiLoginPage;
+/*import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
-import io.qameta.allure.Story;
-import objectrepository.CenturiAdminPage;
-import objectrepository.CenturiLoginPage;
+import io.qameta.allure.Story;*/
+
 
 public class Centuri_Base {
 	public static  WebDriver driver;

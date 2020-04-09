@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite  name="Default suite">
-<test name="PDCA ICON Availability">
+
+<!-- <test name="PDCA ICON Availability">
     <classes>
       <class name="riskmodule.pdca"/>
     </classes>
@@ -11,9 +12,21 @@
     <classes>
 	 <class name="riskmodule.Seed_RiskRegister"/>      
     </classes>
+    </test>-->
+    
+    
+    <test name="Regression testing run for Homepage cases">
+    <classes>
+	 <class name="CenturiHomePageCases.Home_Page_Tests"/>      
+    </classes>
+    </test>
+    <test name="Create a document and move it to different stages">
+    <classes>
+	 <class name="Centuri_POC.Add_New_Document"/>      
+    </classes>
     </test>
     
-    <test name="ChromeTest">
+  <!--  <test name="ChromeTest">
 <parameter name="browser" value="Chrome" />
 <classes>
 <class name="riskmodule.pdca">
@@ -35,6 +48,6 @@
 <class name="riskmodule.pdca">
 </class>
 </classes>
-</test>
+</test>-->
 
     </suite>

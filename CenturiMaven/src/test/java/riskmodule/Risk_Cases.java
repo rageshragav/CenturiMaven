@@ -11,15 +11,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
-import io.qameta.allure.Description;
+import objectrepository.CenturiHomePage;
+import objectrepository.CenturiPdcaPage;
+/*import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
-import io.qameta.allure.Story;
-import objectrepository.CenturiHomePage;
-import objectrepository.CenturiPdcaPage;
+import io.qameta.allure.Story;*/
 
 public class Risk_Cases extends Centuri_Base{
 	
@@ -36,12 +36,12 @@ String RiskTitle = "Automated Risk";
 	
 	@Test(description ="Verify whether user can able to add new risk")
 			//,dependsOnMethods = { "User_login" })
-	@Description("Verify whether user can able to add new risk")
+	/*@Description("Verify whether user can able to add new risk")
 	@Epic("Sprint 84")
 	@Feature("Adding a new Risk")
 	@Story("1234")
 	@Step("Adding a new Risk")
-	@Severity(SeverityLevel.NORMAL)
+	@Severity(SeverityLevel.NORMAL)*/
 	//(dependsOnMethods = { "login" })
 	public void Adding_New_Risk() throws InterruptedException, IOException {
 		 
@@ -100,12 +100,12 @@ String RiskTitle = "Automated Risk";
 }
 	@Test(description ="Verify whether user can able to add new risk",priority=2)
 	//,dependsOnMethods = { "User_login" })
-	@Description("Verify whether user can able to add new risk")
+	/*@Description("Verify whether user can able to add new risk")
 	@Epic("Sprint 84")
 	@Feature("Adding a new Risk")
 	@Story("1234")
 	@Step("Adding a new Risk")
-	@Severity(SeverityLevel.NORMAL)
+	@Severity(SeverityLevel.NORMAL)*/
 //(dependsOnMethods = { "login" })
 public void Edit_Risk() throws InterruptedException, IOException {
 		 PDCA_Page.waitForVisibilityOfElementrisktitle();

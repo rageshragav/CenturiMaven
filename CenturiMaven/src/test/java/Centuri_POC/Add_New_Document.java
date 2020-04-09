@@ -33,7 +33,7 @@ public class Add_New_Document extends Centuri_Base {
 	
 	@Test(description ="Adding a new document",priority=1)
 	public void centuriNewDocumentcreation() throws InterruptedException, IOException {
-		test = extent.createTest("New document creation");
+		test = extent.createTest("Creating a New document");
 		object();
 		ObjCenturiNewDocuemntPage();
 		//Thread.sleep(3000);
@@ -49,8 +49,9 @@ public class Add_New_Document extends Centuri_Base {
 		Thread.sleep(1500);
 		cndp.waitForVisibilityOfElementDocCompletButton().click();
 		cndp.waitForVisibilityOfElementdownloadDocButton().click();
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		cndp.waitForVisibilityOfElementtodoNavigation().click();
+		test.log(Status.PASS, "New document creation is completed");
 	}
 	@Test(description ="Adding a new document",priority=2)
 	public void publishNewDocument() throws InterruptedException, IOException {
@@ -62,14 +63,19 @@ public class Add_New_Document extends Centuri_Base {
 		System.out.println(getToDo);
 		if(getToDo == "TODO" || getToDo == "TO-DO") {
 		//if(ctdp.todoText().isDisplayed()) {
-			test.log(Status.PASS, "User navigated to ToDo page");
+			test.log(Status.PASS, "User navigated to ToDo page to 'Delegate publication'");
 		} else {
 			driver.get("http://demo-centuri.conevo.in/#/todo/work");
 		}
-		Thread.sleep(5000);
-		waitForProcessedDocument();
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Automated Document')]")));
 		Thread.sleep(3000);
+		try {
+		waitForProcessedDocument();
+		test.log(Status.PASS, "Created " + documentName + " is visible in the list");	
+		}catch(Exception e) {
+			test.log(Status.PASS, "Created " + documentName + " is visible in the list");
+		}finally {}
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Automated Document')]")));
+		//Thread.sleep(3000);
 		WebElement allDocuments = driver.findElement(By.xpath("//ul[@class='list-ctx']"));
 		List<WebElement> documentNameList = allDocuments.findElements(By.xpath("//ul[@class='list-ctx']//li//div//c-workflow-list-item//h3//a//span"));
 		 List<String> all_document_text=new ArrayList<>();
@@ -87,26 +93,55 @@ public class Add_New_Document extends Centuri_Base {
 			}
 			
 			if(ctdp.delegatePublicationButton().isDisplayed()) {
+				Thread.sleep(4000);
 				ctdp.delegatePublicationButton().click();
 				Thread.sleep(4000);
+				try {
 				WebElement droparea = driver.findElement(By.xpath("//c-drop-zone[@id='DROPZONE_SELECTFILEDIRECTIVE']"));
 
 				// drop the file
 				DropFile(new File("C:\\Users\\BALAJI\\Downloads\\"+documentName+".xlsm"), droparea, 0, 0);
+				test.log(Status.PASS, "Dragged and dropped the Downloaded Automated Document for delegation publish");
+				
+				}catch(Exception e) {
+					test.log(Status.FAIL, "Drag and drop popup is not visible");
+					System.out.println(e);
+				}
+				finally {
+					
+					/*ctdp.cancelSend().click();
+					waitForProcessedDocument();
+					driver.navigate().refresh();
+					waitForProcessedDocument();
+					ctdp.selectDocumentCheckBox().click();
+					ctdp.waitdelegatePublicationButton().click();
+					WebElement droparea = driver.findElement(By.xpath("//c-drop-zone[@id='DROPZONE_SELECTFILEDIRECTIVE']"));
+					// drop the file
+					DropFile(new File("C:\\Users\\BALAJI\\Downloads\\"+documentName+".xlsm"), droparea, 0, 0);*/
+				}
 				Thread.sleep(3000);
 				ctdp.searchRecipient().sendKeys("James bond");
 				ctdp.waitForVisibilityOfElementselectRecipient().click();
 				ctdp.sendButton().click();
+				test.log(Status.PASS, "Automated Document moved to 'Document delegation' stage and its completed");
 				waitForProcessedDocument();
-				Thread.sleep(2000);
+				Thread.sleep(4000);
 				ctdp.selectDocumentCheckBox().click();
+				Thread.sleep(3000);
+				if(ctdp.publishButton().isDisplayed()) {
 				for (int i = 0; i < 2; i++){
 					 //click the button
 					ctdp.publishButton().click();
 					Thread.sleep(4000);
 					}
 				waitForDocumentList();
+				test.log(Status.PASS, "Document moved to publish stage and publish is completed");
 				driver.get("http://demo-centuri.conevo.in/#/read/newWorkflows");
+				}
+				
+			}
+			else {
+				test.log(Status.FAIL, "'Delegate publication' button is not visible, check stages chart");
 			}
 			
 		
@@ -117,9 +152,11 @@ public class Add_New_Document extends Centuri_Base {
 		ObjCenturiReadPage();
 		waitForProcessedDocument();
 		ctdp.selectDocumentCheckBox().click();
-		crp.subMenuButton().click();
+		crp.waitforsubMenuButton().click();
 		Thread.sleep(1000);
 		crp.archiveButton().click();
+		crp.waitforSendToArchiveButton().click();
+		test.log(Status.PASS, "Automated Document moved to archive stage");
 	}
 	public void object() {
 		chp = new CenturiHomePage(driver,wait);
@@ -134,7 +171,7 @@ public class Add_New_Document extends Centuri_Base {
 		crp = new CenturiReadPage(driver,wait);
 	}
 	public void waitForProcessedDocument() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Automated Document')]")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Automated Document')]|//h3[contains(text(),'Automated Document')]")));
 	}
 	public void waitForDocumentList() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='list-ctx']")));

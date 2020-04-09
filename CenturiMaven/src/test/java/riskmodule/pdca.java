@@ -18,24 +18,24 @@ import org.testng.annotations.Test;
 
 import com.assertthat.selenium_shutterbug.core.Shutterbug;
 
-import io.qameta.allure.Description;
+/*import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
-import io.qameta.allure.Story;
+import io.qameta.allure.Story;*/
 import objectrepository.CenturiAdminPage;
 import objectrepository.CenturiLoginPage;
 
 public class pdca extends Centuri_Base {
 	@Test(description ="Verify whether user can able to Enable/Disable view of the PDCA icon in home page")
-	@Description("Verify whether user can able to Enable/Disable view of the PDCA icon in home pagen")
+	/*@Description("Verify whether user can able to Enable/Disable view of the PDCA icon in home pagen")
 	@Epic("Sprint 84")
 	@Feature("PDCA Icon Visibility")
 	@Story("1234")
 	@Step("PDCA Icon Visibility")
-	@Severity(SeverityLevel.NORMAL)
+	@Severity(SeverityLevel.NORMAL)*/
 	
 	//(dependsOnMethods = { "login" })
 	public void pdca_availability() throws InterruptedException, IOException {

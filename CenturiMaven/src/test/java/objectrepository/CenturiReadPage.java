@@ -3,6 +3,7 @@ package objectrepository;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CenturiReadPage {
@@ -16,10 +17,16 @@ public class CenturiReadPage {
 	}
 	By subMenuButton = By.xpath("//span[@class='submenu']");
 	By archiveButton = By.xpath("//li[contains(text(),'Archive')]");
-	public WebElement subMenuButton() {
-		return driver.findElement(subMenuButton);
-	}
+	By sendToArchiveButton = By.xpath("//li[contains(text(),'Send')]");
+	
 	public WebElement archiveButton() {
 		return driver.findElement(archiveButton);
 	}
+	public WebElement waitforSendToArchiveButton() {
+		 return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(sendToArchiveButton));
+		  }
+	public WebElement waitforsubMenuButton() {
+		 return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(subMenuButton));
+		  }
+	
 }
