@@ -24,16 +24,16 @@ import objectrepository.CenturiReadPage;
 import objectrepository.CenturiToDoPage;
 import riskmodule.Centuri_Base;
 
-public class Add_New_Document extends Centuri_Base {
+public class New_DocumentWithExcelTemplate extends Centuri_Base {
 	CenturiHomePage chp; 
 	CenturiNewDocuemntPage cndp;
 	CenturiToDoPage ctdp;
 	CenturiReadPage crp;
-	String documentName = "Automated Document";
+	String documentName = "Automated Document Excel";
 	
 	@Test(description ="Adding a new document",priority=1)
 	public void centuriNewDocumentcreation() throws InterruptedException, IOException {
-		test = extent.createTest("Creating a New document");
+		test = extent.createTest("Creating a New document by selecting template as excel");
 		object();
 		ObjCenturiNewDocuemntPage();
 		//Thread.sleep(3000);
@@ -42,7 +42,7 @@ public class Add_New_Document extends Centuri_Base {
 		cndp.waitForVisibilityOfElementWorkUnitCenturi().click();
 		cndp.waitForVisibilityOfElementCreateDoc().click();
 		cndp.waitForVisibilityOfElementDocType().click();
-		cndp.waitForVisibilityOfElementDocTemplate().click();
+		cndp.waitForVisibilityOfElementDocTemplateExcel().click();
 		cndp.waitForVisibilityOfElementDocTitleField().sendKeys(documentName);
 		cndp.waitForVisibilityOfElementDocTitleNextButton().click();
 		cndp.waitForVisibilityOfElementDocTag().click();
@@ -171,7 +171,7 @@ public class Add_New_Document extends Centuri_Base {
 		crp = new CenturiReadPage(driver,wait);
 	}
 	public void waitForProcessedDocument() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Automated Document')]|//h3[contains(text(),'Automated Document')]")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Automated Document')]|//h3[contains(text(),'Automated Document Excel')]")));
 	}
 	public void waitForDocumentList() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='list-ctx']")));

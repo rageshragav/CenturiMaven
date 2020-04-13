@@ -18,8 +18,10 @@ public class CenturiNewDocuemntPage {
 	
 	By selectWorkUnitCenturi = By.xpath("//a[contains(text(),'Centuri')]");
 	By createDocument = By.xpath("//a[contains(text(),'Create document')]"); 
-	By selectDocType = By.linkText("Checklist");
-	By selectDocTemplate = By.xpath("//a[contains(text(),'Excel')]");
+	//By selectDocType = By.linkText("Checklist");
+	By selectDocType = By.xpath("//a[contains(text(),'Checklist')]");
+	By selectDocTemplateExcel = By.xpath("//a[contains(text(),'Excel')]");
+	By selectDocTemplateWord = By.xpath("//a[contains(text(),'Test')]");
 	By docTitleField = By.xpath("//input[@id='textField-30339f3e-2d71-4ba3-afee-e9f781be4d23']");
 	By titleNext = By.xpath("//li[@class='ng-scope']//*[contains(text(),'Next')]");
 	By selectDocTag = By.xpath("//*[@class='treeview-checkbox ng-scope ng-isolate-scope']//*[local-name()='svg']");
@@ -39,8 +41,11 @@ public class CenturiNewDocuemntPage {
     public WebElement waitForVisibilityOfElementDocType() {
             return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(selectDocType));
         }
-    public WebElement waitForVisibilityOfElementDocTemplate() {
-        return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(selectDocTemplate));
+    public WebElement waitForVisibilityOfElementDocTemplateExcel() {
+        return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(selectDocTemplateExcel));
+    }
+    public WebElement waitForVisibilityOfElementDocTemplateWord() {
+        return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(selectDocTemplateWord));
     }
     public WebElement waitForVisibilityOfElementDocTitleField() {
         return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(docTitleField));
