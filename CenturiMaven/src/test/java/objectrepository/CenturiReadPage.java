@@ -17,7 +17,7 @@ public class CenturiReadPage {
 	}
 	By subMenuButton = By.xpath("//span[@class='submenu']");
 	By archiveButton = By.xpath("//li[contains(text(),'Archive')]");
-	By sendToArchiveButton = By.xpath("//li[contains(text(),'Send')]");
+	By sendToArchiveButton = By.xpath("//li[@class='ng-scope']//span[@class='ng-binding'][contains(text(),'Send')]");
 	
 	public WebElement archiveButton() {
 		return driver.findElement(archiveButton);

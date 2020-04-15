@@ -22,8 +22,11 @@ public class CenturiToDoPage {
 	//Elements for creating NEW Document, Cases, Contracts, Form, Task
 	By todoText = By.xpath("//div[@class='ng-isolate-scope']//menu");
 	By newDocumentInList = By.xpath("//*[@class='list-ctx']//li//div//c-workflow-list-item//h3//span[contains(text(),'Automated Document')]");
+	By subMenuThreeDotsIcon = By.className("submenu");
+	By saveDocumentButton = By.xpath("//li[contains(text(),'Save')]");
 	By delegatePublicationButton = By.xpath("//span[@class='ng-binding'][contains(text(),'Delegate publication')]");
 	By waitdelegatePublicationButton = By.xpath("//span[@class='ng-binding'][contains(text(),'Delegate publication')]");
+	By recipientText = By.xpath("//h2[contains(text(),'Recipients')]");
 	By searchRecipient = By.xpath("//div[@class='selected']//input");
 	By selectRecipient = By.xpath("//div[@class='container']//span[contains(text(),'James Bond (james)')]");
 	By sendButton = By.xpath("//li[@class='ng-scope']//span[contains(text(),'Send')]");
@@ -36,8 +39,18 @@ public class CenturiToDoPage {
 	public WebElement newDocumentInList() {
 		return driver.findElement(newDocumentInList);
 	}
+	public WebElement subMenuThreeDotsIcon() {
+		//return driver.findElement(subMenuThreeDotsIcon);
+		return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(subMenuThreeDotsIcon));
+	}
 	public WebElement delegatePublicationButton() {
 		return driver.findElement(delegatePublicationButton);
+	}
+	public WebElement saveDocumentButton() {
+		return driver.findElement(saveDocumentButton);
+	}
+	public WebElement waitForVisibilityOfElementrecipientText() {
+		return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(recipientText));
 	}
 	public WebElement searchRecipient() {
 		return driver.findElement(searchRecipient);

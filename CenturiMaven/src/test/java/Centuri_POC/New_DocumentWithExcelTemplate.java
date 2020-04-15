@@ -53,9 +53,9 @@ public class New_DocumentWithExcelTemplate extends Centuri_Base {
 		cndp.waitForVisibilityOfElementtodoNavigation().click();
 		test.log(Status.PASS, "New document creation is completed");
 	}
-	@Test(description ="Adding a new document",priority=2)
+	@Test(description ="Delegate publication a new document",priority=2)
 	public void publishNewDocument() throws InterruptedException, IOException {
-		test = extent.createTest("Publish document");
+		test = extent.createTest("Delegate publication and Publish document");
 		ObjCenturiTodoPage();
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ng-isolate-scope']//menu")));
@@ -93,14 +93,20 @@ public class New_DocumentWithExcelTemplate extends Centuri_Base {
 			}
 			
 			if(ctdp.delegatePublicationButton().isDisplayed()) {
-				Thread.sleep(4000);
-				ctdp.delegatePublicationButton().click();
+				driver.navigate().refresh();
+				waitForProcessedDocument();
+				Thread.sleep(2000);
+				ctdp.selectDocumentCheckBox().click();
+				Thread.sleep(2000);
+				ctdp.subMenuThreeDotsIcon().click();
+				ctdp.saveDocumentButton().click();
+				//ctdp.delegatePublicationButton().click();
 				Thread.sleep(4000);
 				try {
 				WebElement droparea = driver.findElement(By.xpath("//c-drop-zone[@id='DROPZONE_SELECTFILEDIRECTIVE']"));
-
 				// drop the file
 				DropFile(new File("C:\\Users\\BALAJI\\Downloads\\"+documentName+".xlsm"), droparea, 0, 0);
+				Thread.sleep(4000);
 				test.log(Status.PASS, "Dragged and dropped the Downloaded Automated Document for delegation publish");
 				
 				}catch(Exception e) {
@@ -108,47 +114,40 @@ public class New_DocumentWithExcelTemplate extends Centuri_Base {
 					System.out.println(e);
 				}
 				finally {
-					
-					/*ctdp.cancelSend().click();
-					waitForProcessedDocument();
-					driver.navigate().refresh();
-					waitForProcessedDocument();
-					ctdp.selectDocumentCheckBox().click();
-					ctdp.waitdelegatePublicationButton().click();
-					WebElement droparea = driver.findElement(By.xpath("//c-drop-zone[@id='DROPZONE_SELECTFILEDIRECTIVE']"));
-					// drop the file
-					DropFile(new File("C:\\Users\\BALAJI\\Downloads\\"+documentName+".xlsm"), droparea, 0, 0);*/
-				}
-				Thread.sleep(3000);
-				ctdp.searchRecipient().sendKeys("James bond");
-				ctdp.waitForVisibilityOfElementselectRecipient().click();
-				ctdp.sendButton().click();
-				test.log(Status.PASS, "Automated Document moved to 'Document delegation' stage and its completed");
-				waitForProcessedDocument();
-				Thread.sleep(4000);
-				ctdp.selectDocumentCheckBox().click();
-				Thread.sleep(3000);
-				if(ctdp.publishButton().isDisplayed()) {
-				for (int i = 0; i < 2; i++){
-					 //click the button
-					ctdp.publishButton().click();
-					Thread.sleep(4000);
-					}
-				waitForDocumentList();
-				test.log(Status.PASS, "Document moved to publish stage and publish is completed");
-				driver.get("http://demo-centuri.conevo.in/#/read/newWorkflows");
+					Thread.sleep(2000);
+					ctdp.delegatePublicationButton().click();
 				}
 				
 			}
 			else {
 				test.log(Status.FAIL, "'Delegate publication' button is not visible, check stages chart");
 			}
-			
+			ctdp.waitForVisibilityOfElementrecipientText();
+			Thread.sleep(3000);
+			ctdp.searchRecipient().sendKeys("James bond");
+			ctdp.waitForVisibilityOfElementselectRecipient().click();
+			ctdp.sendButton().click();
+			test.log(Status.PASS, "Automated Document moved to 'Document delegation' stage and its completed");
+			waitForProcessedDocument();
+			Thread.sleep(4000);
+			ctdp.selectDocumentCheckBox().click();
+			Thread.sleep(3000);
+			if(ctdp.publishButton().isDisplayed()) {
+			for (int i = 0; i < 2; i++){
+				 //click the button
+				ctdp.publishButton().click();
+				Thread.sleep(4000);
+				}
+			waitForDocumentList();
+			test.log(Status.PASS, "Document moved to publish stage and publish is completed");
+			driver.get("http://demo-centuri.conevo.in/#/read/newWorkflows");
+			}
 		
 	}
 	
-	@Test(description ="Adding a new document",priority=3)
+	@Test(description ="Archive a new document",priority=3)
 	public void archiveDocument() throws InterruptedException, IOException {
+		test = extent.createTest("Archive the Automated document");
 		ObjCenturiReadPage();
 		waitForProcessedDocument();
 		ctdp.selectDocumentCheckBox().click();

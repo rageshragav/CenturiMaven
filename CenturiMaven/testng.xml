@@ -2,6 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite  name="Default suite">
 
+<test name="Centuri Regression test run">
+    <classes>
+         	    <class name="CenturiHomePageCases.Home_Page_Tests"/>
+                <class name="Centuri_POC.New_DocumentWithExcelTemplate"/>
+                <class name="Centuri_POC.New_DocumentWith_Word_Template"/>
+    </classes>
+    </test>
+
+
+
+
+
 <!-- <test name="PDCA ICON Availability">
     <classes>
       <class name="riskmodule.pdca"/>
@@ -12,7 +24,7 @@
     <classes>
 	 <class name="riskmodule.Seed_RiskRegister"/>      
     </classes>
-    </test>-->
+    </test>
     
     
     <test name="Regression testing run for Homepage cases">
@@ -24,7 +36,7 @@
     <classes>
 	 <class name="Centuri_POC.Add_New_Document"/>      
     </classes>
-    </test>
+    </test>-->
     
   <!--  <test name="ChromeTest">
 <parameter name="browser" value="Chrome" />
