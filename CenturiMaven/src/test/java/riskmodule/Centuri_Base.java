@@ -1,9 +1,14 @@
 package riskmodule;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -22,7 +27,9 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -51,36 +58,33 @@ import io.qameta.allure.Story;*/
 public class Centuri_Base {
 	public static  WebDriver driver;
 	public WebDriverWait wait ;
+	public WebDriverWait wait1 ;
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
 	public ExtentTest test;
 
 public void userlogin() throws InterruptedException {
 	
-	  
 	 CenturiLoginPage clp = new CenturiLoginPage(driver, wait);
-	 	
-	 //clp.user().sendKeys("james");
-	// test.log(Status.PASS, "Login test started");
 	 //NOT USING THREAD AND WAITING FOR THE VISIBILITY OF ELEMENT
 	 clp.waitForVisibilityOfElementuser().sendKeys("james");
 	 //NOT USING THREAD AND WAITING FOR THE VISIBILITY OF ELEMENT
 	 clp.waitForVisibilityOfElementsignin().click();
-	 //test.log(Status.PASS,"Login successfull");
-	 
-	// clp.signinbutton().click();
 	}
-
+public void WaitForTwoSeconds() throws InterruptedException {
+	Thread.sleep(2000);
+}
 	@BeforeTest
+//	@BeforeSuite
 	@Parameters({"browser"})
 	public void Launch_Browser(@Optional("Chrome")String browser) throws Exception {
-		
 		
 		htmlReporter  = new ExtentHtmlReporter(System.getProperty("user.dir")+"./reports/extent.html");
 		htmlReporter.config().setEncoding("utf-8");
 		htmlReporter.config().setDocumentTitle("Centuri Automation Report");
 		htmlReporter.config().setReportName("Automation Test Results");
 		htmlReporter.config().setTheme(Theme.DARK);
+		htmlReporter.config().enableTimeline(true);
 		
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
@@ -102,7 +106,7 @@ public void userlogin() throws InterruptedException {
 			//Check if parameter passed as 'chrome'
 			else if(browser.equalsIgnoreCase("Chrome")){
 				//set path to chromedriver.exe
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\drivers\\chromedriver_80.exe");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\drivers\\chromedriver_81.exe");
 				//create chrome instance
 				driver = new ChromeDriver();
 				//test.log(Status.PASS, "Chrome browser launchd and centuri regression test started");
@@ -121,8 +125,9 @@ public void userlogin() throws InterruptedException {
 		 driver.get("http://demo-centuri.conevo.in/");
 		 driver.manage().window().maximize();
 		
-		 wait = new WebDriverWait(driver, 160);
-		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+		 wait = new WebDriverWait(driver, 15);
+		 wait1 = new WebDriverWait(driver, 160);
+		 wait1.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
 		 userlogin();
 		/* wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
 		  
@@ -135,11 +140,30 @@ public void userlogin() throws InterruptedException {
 		 
 		 
 	}
+
 	
 	@AfterTest
-	public void endReport() {
+	public void endReport() throws AWTException {
 		extent.flush();
 	}
+	//@AfterTest
+	//@AfterSuite
+	/*public void endReport() throws AWTException {
+		extent.flush();
+		   Robot r = new Robot();        
+           r.keyPress(KeyEvent.VK_CONTROL);
+           r.keyPress(KeyEvent.VK_T);
+           r.keyRelease(KeyEvent.VK_CONTROL);
+           r.keyRelease(KeyEvent.VK_T);
+           WebDriverWait wait = new WebDriverWait(driver, 20);
+           wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+           //To switch to the new tab
+           ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+           driver.manage().timeouts().implicitlyWait(5, TimeUnit.MINUTES);
+           driver.switchTo().window(tabs.get(1));
+           //driver.get("file:///E:/Ragesh Automation/RF_Automation/test-output/STMExtentReport.html#!");
+           driver.get("file:///C:/Users/BALAJI/git/CenturiMaven/CenturiMaven/reports/extent.html");
+	}*/
 	
 	
    
@@ -157,9 +181,6 @@ public void userlogin() throws InterruptedException {
 		}else if (result.getStatus()==ITestResult.SUCCESS) {
 			test.log(Status.PASS, "TEST CASE PASSED IS " + result.getName());
 		}
-		
-	
-		
 		
 		
 		/*if(result.getStatus()==ITestResult.FAILURE) {

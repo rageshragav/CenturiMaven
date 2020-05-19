@@ -3,15 +3,40 @@ package objectrepository;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CenturiAdminPage {
 	WebDriver driver;
+	private WebDriverWait webDriverWait;
 
-	public CenturiAdminPage(WebDriver driver) {
+	public CenturiAdminPage(WebDriver driver,WebDriverWait webDriverWait) {
 		this.driver = driver;	
+		this.webDriverWait = webDriverWait;
 	}
 	
+	By adminIcon = By.xpath("//div[@class='ng-scope ng-isolate-scope']//*[contains(text(),'Administrator')]");
+	public WebElement adminIcon() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(adminIcon));
+		  }
 	
+	By generalOption = By.xpath("//li[1]//li[1]//span[1]//a[1][contains(text(),'General')]");
+	public WebElement generalOption() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(generalOption));
+		  }
+	By editButton = By.xpath("//section//*[contains(text(),'Edit')]");
+	public WebElement editButton() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(editButton));
+		  }
+	
+	By languageDropdown = By.xpath("//i[@class='menu-angle fa fa-angle-down']");
+	public WebElement languageDropdown() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(languageDropdown));
+		  }
+	By languageList = By.xpath("//div[@class='select-menu-container ng-scope']");
+	public WebElement languageList() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(languageList));
+		  }
 	//Menu popup buttons
 	By startlink = By.xpath("//*[contains(text(),'START')]");
 	//By adminstration = By.xpath("//*[contains(text(),'Administrera')]"); 

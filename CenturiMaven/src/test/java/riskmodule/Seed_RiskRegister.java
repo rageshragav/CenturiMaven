@@ -13,7 +13,7 @@ import objectrepository.CenturiAdminPage;
 public class Seed_RiskRegister extends Centuri_Base{
 @Test
 	public void seed_register() throws InterruptedException {
-		 CenturiAdminPage cap = new CenturiAdminPage(driver);
+		 CenturiAdminPage cap = new CenturiAdminPage(driver,wait);
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'START')]")));
 			 Thread.sleep(3000);

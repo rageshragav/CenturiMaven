@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Test Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="extentReports.TestListener"/>
+  </listeners>
+  <test name="Centuri Tests(failed)">
+    <classes>
+      <class name="Centuri_POC.New_DocumentWith_Word_Template">
+        <methods>
+          <include name="centuriNewDocumentcreation"/>
+          <include name="archiveDocument"/>
+          <include name="publishNewDocument"/>
+        </methods>
+      </class> <!-- Centuri_POC.New_DocumentWith_Word_Template -->
+      <class name="Centuri_POC.New_DocumentWithExcelTemplate">
+        <methods>
+          <include name="archiveDocument"/>
+          <include name="publishNewDocument"/>
+          <include name="centuriNewDocumentcreation"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- Centuri_POC.New_DocumentWithExcelTemplate -->
+      <class name="CenturiHomePageCases.Home_Page_Tests">
+        <methods>
+          <include name="Launch_Browser"/>
+          <include name="centuri_home_page_testcase_002"/>
+          <include name="centuri_home_page_testcase_003"/>
+          <include name="centuri_home_page_testcase_004"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- CenturiHomePageCases.Home_Page_Tests -->
+    </classes>
+  </test> <!-- Centuri Tests(failed) -->
+</suite> <!-- Failed suite [Test Suite] -->

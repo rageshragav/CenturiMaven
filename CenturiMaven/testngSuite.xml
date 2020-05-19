@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test Suite" verbose="1">
+	<listeners>
+		<listener class-name="extentReports.TestListener" />
+	</listeners>
+	<!-- <parameter name="browserType" value="chrome" />
+	<parameter name="appURL" value="https://google.com" />-->
+
+	<test name="Centuri Tests">
+		<classes>
+			<class name="CenturiHomePageCases.Home_Page_Tests"/>
+                <class name="Centuri_POC.New_DocumentWithExcelTemplate"/>
+                <class name="Centuri_POC.New_DocumentWith_Word_Template"/>
+		</classes>
+	</test>
+</suite>

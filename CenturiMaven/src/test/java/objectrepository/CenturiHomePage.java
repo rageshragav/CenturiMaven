@@ -16,6 +16,78 @@ public class CenturiHomePage {
 		this.webDriverWait = webDriverWait;
 	}
 	
+	By centuriMainPage = By.tagName("html");
+	public WebElement centuriMainPage() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(centuriMainPage));
+		  }
+	
+	
+//-------------------------------------------------------------------------------------------------------------------------------------
+	//Shortcut popup 
+	By documentNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Document')]");
+	public WebElement documentNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(documentNavigation));
+		  }
+	By formNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Form')]");
+	public WebElement formNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(formNavigation));
+		  }
+	By caseNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Case')]");
+	public WebElement caseNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(caseNavigation));
+		  }
+	By contractNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Contract')]");
+	public WebElement contractNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(contractNavigation));
+		  }
+	By taskNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Task')]");
+	public WebElement taskNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(taskNavigation));
+		  }
+	By portalNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Portal')]");
+	public WebElement portalNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(portalNavigation));
+		  }
+	By readNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Read')]");
+	public WebElement readNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(readNavigation));
+		  }
+	By contractsListNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Contracts')]");
+	public WebElement contractsListNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(contractsListNavigation));
+		  }
+	By casesListNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Cases')]");
+	public WebElement casesListNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(casesListNavigation));
+		  }
+	By riskListNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'PDCA')]");
+	public WebElement riskListNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(riskListNavigation));
+		  }
+	By searchMainPageNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Search')]");
+	public WebElement searchMainPageNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(searchMainPageNavigation));
+		  }
+	By todoMainPageNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Todo')]");
+	public WebElement todoMainPageNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(todoMainPageNavigation));
+		  }
+	By reportsMainPageNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Reports')]");
+	public WebElement reportsMainPageNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(reportsMainPageNavigation));
+		  }
+	By administrationMainPageNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Administrator')]");
+	public WebElement administrationMainPageNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(administrationMainPageNavigation));
+		  }
+	By helpMainPageNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Help')]");
+	public WebElement helpMainPageNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(helpMainPageNavigation));
+		  }
+	By settingsMainPageNavigation = By.xpath("//div[@class='popup-content']//li[contains(text(),'Settings')]");
+	public WebElement settingsMainPageNavigation() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(settingsMainPageNavigation));
+		  }
 //-----------------------------------------------------------------------------------------------------------------
 	
 	//Elements for creating NEW Document, Cases, Contracts, Form, Task

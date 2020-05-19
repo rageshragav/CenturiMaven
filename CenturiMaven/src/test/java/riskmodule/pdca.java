@@ -40,7 +40,7 @@ public class pdca extends Centuri_Base {
 	//(dependsOnMethods = { "login" })
 	public void pdca_availability() throws InterruptedException, IOException {
 		 test = extent.createTest("PDCA icon availability");
-		 CenturiAdminPage cap = new CenturiAdminPage(driver);
+		 CenturiAdminPage cap = new CenturiAdminPage(driver,wait);
 		 CenturiLoginPage clp = new CenturiLoginPage(driver, wait);
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'START')]")));

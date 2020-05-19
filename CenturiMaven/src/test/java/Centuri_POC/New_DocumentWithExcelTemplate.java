@@ -154,8 +154,14 @@ public class New_DocumentWithExcelTemplate extends Centuri_Base {
 		crp.waitforsubMenuButton().click();
 		Thread.sleep(1000);
 		crp.archiveButton().click();
+		Thread.sleep(1000);
 		crp.waitforSendToArchiveButton().click();
+		Thread.sleep(3000);
+		if(driver.getPageSource().contains(documentName)) {
 		test.log(Status.PASS, "Automated Document moved to archive stage");
+		}else {
+			test.log(Status.FAIL, "Automated Document not moved to archive stage");
+		}
 	}
 	public void object() {
 		chp = new CenturiHomePage(driver,wait);

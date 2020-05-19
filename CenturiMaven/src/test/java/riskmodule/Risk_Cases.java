@@ -11,6 +11,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.Status;
+
 import objectrepository.CenturiHomePage;
 import objectrepository.CenturiPdcaPage;
 /*import io.qameta.allure.Description;
@@ -29,11 +32,10 @@ String RiskTitle = "Automated Risk";
  public CenturiHomePage chp;
  public CenturiPdcaPage PDCA_Page;
 	
-	/*public void setup() {
-		 chp = new CenturiHomePage(driver, wait);
-		 PDCA_Page = new CenturiPdcaPage(driver,wait);
-	}*/
 	
+ public void object() {
+		chp = new CenturiHomePage(driver,wait);
+	}
 	@Test(description ="Verify whether user can able to add new risk")
 			//,dependsOnMethods = { "User_login" })
 	/*@Description("Verify whether user can able to add new risk")
@@ -44,8 +46,9 @@ String RiskTitle = "Automated Risk";
 	@Severity(SeverityLevel.NORMAL)*/
 	//(dependsOnMethods = { "login" })
 	public void Adding_New_Risk() throws InterruptedException, IOException {
-		 
-		 chp = new CenturiHomePage(driver, wait);
+		test = extent.createTest("Adding a new risk #TC-3.1.9-001");
+		object();
+		 //chp = new CenturiHomePage(driver, wait);
 		 PDCA_Page = new CenturiPdcaPage(driver,wait);
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'START')]")));
 		Thread.sleep(2000);	
@@ -81,10 +84,11 @@ String RiskTitle = "Automated Risk";
 		    String savedRisk = links.get(i).getText();
 		    if(savedRisk.contains(RiskTitle)) {
 		    	System.out.println("Riskadded");
-		    	Assert.assertTrue(true);
+		    	test.log(Status.PASS, "New risk added successfully");
 		    	break ;
 		    }
 		    else {
+		    	test.log(Status.PASS, "New risk not added successfully");
 		    	Assert.assertFalse(true);
 		    	System.out.println("Risk not added");
 		    }
@@ -98,7 +102,7 @@ String RiskTitle = "Automated Risk";
 			 throw e;
 		 }
 }
-	@Test(description ="Verify whether user can able to add new risk",priority=2)
+	//@Test(description ="Verify whether user can able to add new risk",priority=2)
 	//,dependsOnMethods = { "User_login" })
 	/*@Description("Verify whether user can able to add new risk")
 	@Epic("Sprint 84")
