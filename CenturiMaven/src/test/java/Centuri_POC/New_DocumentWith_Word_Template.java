@@ -24,84 +24,77 @@ public class New_DocumentWith_Word_Template extends Centuri_Base{
 	CenturiToDoPage ctdp;
 	CenturiReadPage crp;
 	String documentName = "Automated Document Word";
-
+	String documentdescription = "This is the test description filled when running the test automation";
+	List <String> all_document_text;
 	
+
 @Test(description ="Adding a new document",priority=1)
 public void centuriNewDocumentcreation() throws InterruptedException, IOException {
 	test = extent.createTest("Creating a New document");
 	object();
 	ObjCenturiNewDocuemntPage();
-	//Thread.sleep(3000);
 	chp.waitForVisibilityOfElementNewButton().click();
 	chp.newDocumentCreateButton().click();
-	cndp.waitForVisibilityOfElementWorkUnitCenturi().click();
 	cndp.waitForVisibilityOfElementCreateDoc().click();
+	//cndp.waitForVisibilityOfElementWorkUnitCenturi().click();
 	cndp.waitForVisibilityOfElementDocType().click();
-	Thread.sleep(1500);
 	cndp.waitForVisibilityOfElementDocTemplateWord().click();
 	cndp.waitForVisibilityOfElementDocTitleField().sendKeys(documentName);
+	cndp.waitForVisibilityOfElementdocDescriptionField().sendKeys(documentdescription);
 	cndp.waitForVisibilityOfElementDocTitleNextButton().click();
 	cndp.waitForVisibilityOfElementDocTag().click();
-	cndp.waitForVisibilityOfElementDocCompletButton().click();
+	cndp.waitForVisibilityOfElementDocCompletButton().click(); 
 	cndp.waitForVisibilityOfElementdownloadDocButton().click();
-	Thread.sleep(1500);
 	cndp.waitForVisibilityOfElementtodoNavigation().click();
 	test.log(Status.PASS, "New document creation is completed");
 }
 @Test(description ="Adding a new document",priority=2)
 public void publishNewDocument() throws InterruptedException, IOException {
-	test = extent.createTest("Publish document");
+	test = extent.createTest("Document Delegate Publishing and publishing");
 	ObjCenturiTodoPage();
-	Thread.sleep(2000);
 	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='ng-isolate-scope']//menu")));
 	String getToDo = ctdp.todoText().getText();
-	System.out.println(getToDo);
+	//System.out.println(getToDo);
 	if(getToDo == "TODO" || getToDo == "TO-DO") {
-	//if(ctdp.todoText().isDisplayed()) {
 		test.log(Status.PASS, "User navigated to ToDo page to 'Delegate publication'");
 	} else {
 		driver.get("http://demo-centuri.conevo.in/#/todo/work");
 	}
-	Thread.sleep(3000);
-	try {
-	waitForProcessedDocument();
-	test.log(Status.PASS, "Created " + documentName + " is visible in the list");	
-	}catch(Exception e) {
-		test.log(Status.PASS, "Created " + documentName + " is visible in the list");
-	}finally {}
-	//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Automated Document')]")));
-	//Thread.sleep(3000);
+	
+	//Iterating through the list of available documents Checking the document visibility in the TODO page
+	cndp.waitForVisibilityOfProcessedDocument();
+	cndp.waitForVisibilityOfdisplayCountText();
 	WebElement allDocuments = driver.findElement(By.xpath("//ul[@class='list-ctx']"));
-	List<WebElement> documentNameList = allDocuments.findElements(By.xpath("//ul[@class='list-ctx']//li//div//c-workflow-list-item//h3//a//span"));
-	 List<String> all_document_text=new ArrayList<>();
+	List<WebElement> documentNameList = allDocuments.findElements(By.xpath("//ul[@class='list-ctx']//li//div[@class='container']//li[@class='title']"));
+	
+	all_document_text=new ArrayList<>();
 	for (int i = 0; i < documentNameList.size(); i++){ 
-		Thread.sleep(500);
 		all_document_text.add(documentNameList.get(i).getAttribute("innerText"));
 		}
-		System.out.println(all_document_text);
-		System.out.println("" +documentName+  "");
+		//System.out.println(all_document_text);
+		//System.out.println("" +documentName+  "");
 		if(all_document_text.contains(documentName)||all_document_text.contains("" +documentName+  "")) {
 			test.log(Status.PASS, "Created " + documentName + " is displayed in the ToDo list");	
 		}else {
 			test.log(Status.FAIL, "Created " + documentName + " is not displayed in the ToDo list");	
 		}
 		
-		if(ctdp.delegatePublicationButton().isDisplayed()) {
+		ctdp.waitForVisibilityOfElementDelegatePublicationButton();
+		if(ctdp.waitForVisibilityOfElementDelegatePublicationButton().isDisplayed() || ctdp.publishButton().isDisplayed()) {
+			cndp.waitForVisibilityOfElementdocumentListInTodo();
+			driver.get("http://demo-centuri.conevo.in/#/todo/work");
 			driver.navigate().refresh();
-			waitForProcessedDocument();
-			Thread.sleep(2000);
+			
+			//waiting for the document and selecting the checkbox of the document for saving, drag and drop the downloaded file
+			cndp.waitForVisibilityOfProcessedDocument();
 			ctdp.selectDocumentCheckBox().click();
-			Thread.sleep(2000);
 			ctdp.subMenuThreeDotsIcon().click();
 			ctdp.saveDocumentButton().click();
-			//ctdp.delegatePublicationButton().click();
-			Thread.sleep(4000);
 			try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//c-drop-zone[@id='DROPZONE_SELECTFILEDIRECTIVE']"))));
 			WebElement droparea = driver.findElement(By.xpath("//c-drop-zone[@id='DROPZONE_SELECTFILEDIRECTIVE']"));
-
 			// drop the file
 			DropFile(new File("C:\\Users\\BALAJI\\Downloads\\"+documentName+".docx"), droparea, 0, 0);
-			Thread.sleep(4000);
 			test.log(Status.PASS, "Dragged and dropped the Downloaded Automated Document for delegation publish");
 			
 			}catch(Exception e) {
@@ -109,53 +102,34 @@ public void publishNewDocument() throws InterruptedException, IOException {
 				System.out.println(e);
 			}
 			finally {
-				Thread.sleep(4000);
-				ctdp.delegatePublicationButton().click();
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(text(),'Please wait while the document is saved.')]")));
+				//Clicking on the delegate publication button after the file saved successfully
+				ctdp.waitForVisibilityOfElementDelegatePublicationButton().click();
 			}
-			Thread.sleep(3000);
+			ctdp.waitForVisibilityOfElementrecipientText();
+			ctdp.waitForVisibilityOfElementsearchRecipient();
 			ctdp.searchRecipient().sendKeys("James bond");
 			ctdp.waitForVisibilityOfElementselectRecipient().click();
 			ctdp.sendButton().click();
 			test.log(Status.PASS, "Automated Document moved to 'Document delegation' stage and its completed");
-			waitForProcessedDocument();
-			Thread.sleep(4000);
+			cndp.waitForVisibilityOfProcessedDocument();
 			ctdp.selectDocumentCheckBox().click();
-			Thread.sleep(3000);
-			if(ctdp.publishButton().isDisplayed()) {
+			ctdp.waitForVisibilityOfElementpublishButton();
+			if(ctdp.waitForVisibilityOfElementpublishButton().isDisplayed()) {
 			for (int i = 0; i < 2; i++){
 				 //click the button
-				ctdp.publishButton().click();
+				ctdp.waitForVisibilityOfElementpublishButton().click();
 				Thread.sleep(4000);
 				}
-			waitForDocumentList();
+			crp.waitForDocumentList();
 			test.log(Status.PASS, "Document moved to publish stage and publish is completed");
 			driver.get("http://demo-centuri.conevo.in/#/read/newWorkflows");
 			}
-			
 		}
 		else {
 			test.log(Status.FAIL, "'Delegate publication' button is not visible, check stages chart");
 		}
-		ctdp.waitForVisibilityOfElementrecipientText();
-		Thread.sleep(3000);
-		ctdp.searchRecipient().sendKeys("James bond");
-		ctdp.waitForVisibilityOfElementselectRecipient().click();
-		ctdp.sendButton().click();
-		test.log(Status.PASS, "Automated Document moved to 'Document delegation' stage and its completed");
-		waitForProcessedDocument();
-		Thread.sleep(4000);
-		ctdp.selectDocumentCheckBox().click();
-		Thread.sleep(3000);
-		if(ctdp.publishButton().isDisplayed()) {
-		for (int i = 0; i < 2; i++){
-			 //click the button
-			ctdp.publishButton().click();
-			Thread.sleep(4000);
-			}
-		waitForDocumentList();
-		test.log(Status.PASS, "Document moved to publish stage and publish is completed");
-		driver.get("http://demo-centuri.conevo.in/#/read/newWorkflows");
-		}
+		
 	
 }
 
@@ -163,13 +137,19 @@ public void publishNewDocument() throws InterruptedException, IOException {
 public void archiveDocument() throws InterruptedException, IOException {
 	test = extent.createTest("Archive the Automated document");
 	ObjCenturiReadPage();
-	waitForProcessedDocument();
+	cndp.waitForVisibilityOfProcessedDocument();
 	ctdp.selectDocumentCheckBox().click();
 	crp.waitforsubMenuButton().click();
-	Thread.sleep(1000);
-	crp.archiveButton().click();
+	crp.waitforarchiveButton().click();
+	crp.waitforarchiveText();
 	crp.waitforSendToArchiveButton().click();
-	test.log(Status.PASS, "Automated Document moved to archive stage");
+	crp.waitForDocumentList();
+	if(driver.getPageSource().contains(documentName)) {
+		test.log(Status.FAIL, "Automated document didnt moved to archieved stage");
+	}else {
+		test.log(Status.PASS, "Automated document successfully moved to archieved stage");
+	}
+	
 }
 public void object() {
 	chp = new CenturiHomePage(driver,wait);
@@ -183,14 +163,25 @@ public void ObjCenturiTodoPage() {
 public void ObjCenturiReadPage() {
 	crp = new CenturiReadPage(driver,wait);
 }
-public void waitForProcessedDocument() {
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Automated Document')]|//h3[contains(text(),'Automated Document Word')]")));
-}
-public void waitForDocumentList() {
-	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='list-ctx']")));
-}
-public void iterateThroughDocumentList(){
-	
-}
 
 }
+
+/*
+ * //Iterating through the list of available documents Checking the document visibility in the TODO page
+			cndp.waitForVisibilityOfProcessedDocument();
+			cndp.waitForVisibilityOfdisplayCountText();
+			WebElement allDocumentsList = driver.findElement(By.xpath("//ul[@class='list-ctx']"));
+List<WebElement> documentStages = allDocumentsList.findElements(By.xpath("//div[@class='content-wrapper list-item loaded ng-scope list-item-hover list-item-selected']"));
+
+List <String>all_document_stages=new ArrayList<>();
+for (int i = 0; i < documentStages.size(); i++){ 
+	//Thread.sleep(500);
+	all_document_stages.add(documentStages.get(i).getAttribute("innerText"));
+	}
+	System.out.println(all_document_stages);
+	System.out.println("" +documentName+  "");
+	if(all_document_text.contains(documentName)||all_document_text.contains("" +documentName+  "")) {
+		test.log(Status.PASS, "Created " + documentName + " is displayed in the ToDo list");	
+	}else {
+		test.log(Status.FAIL, "Created " + documentName + " is not displayed in the ToDo list");	
+	}*/

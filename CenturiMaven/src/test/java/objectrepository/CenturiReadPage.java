@@ -17,10 +17,16 @@ public class CenturiReadPage {
 	}
 	By subMenuButton = By.xpath("//span[@class='submenu']");
 	By archiveButton = By.xpath("//li[contains(text(),'Archive')]");
-	By sendToArchiveButton = By.xpath("//li[@class='ng-scope']//span[@class='ng-binding'][contains(text(),'Send')]");
-	
-	public WebElement archiveButton() {
-		return driver.findElement(archiveButton);
+	By sendToArchiveButton = By.xpath("//li[@class='ng-scope']//*[contains(text(),'Send')]");
+	By archiveText =  By.xpath("//header[@class='ng-scope']//*[contains(text(),'Archive')]");
+	By documentList = By.xpath("//ul[@class='list-ctx']");
+	public WebElement waitforarchiveButton() {
+		return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(archiveButton));
+		//return driver.findElement(archiveButton);
+	}
+	public WebElement waitforarchiveText() {
+		return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(archiveText));
+		//return driver.findElement(archiveButton);
 	}
 	public WebElement waitforSendToArchiveButton() {
 		 return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(sendToArchiveButton));
@@ -28,5 +34,8 @@ public class CenturiReadPage {
 	public WebElement waitforsubMenuButton() {
 		 return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(subMenuButton));
 		  }
-	
+	public  WebElement waitForDocumentList() {
+		return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(documentList));
+	}
+
 }

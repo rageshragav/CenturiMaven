@@ -6,7 +6,7 @@
       <class name="Centuri_Admin_Page_Cases.Administration_Cases">
         <methods>
           <include name="Launch_Browser"/>
-          <include name="centuri_Admin_page_testcase_001"/>
+          <include name="centuri_Admin_page_testcase_3_1_2_1"/>
           <include name="endReport"/>
           <include name="tearDown"/>
         </methods>

@@ -4,10 +4,14 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -62,15 +66,9 @@ public class Centuri_Base {
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
 	public ExtentTest test;
+	public Properties obj;
+	public DateTimeFormatter dtf;
 
-public void userlogin() throws InterruptedException {
-	
-	 CenturiLoginPage clp = new CenturiLoginPage(driver, wait);
-	 //NOT USING THREAD AND WAITING FOR THE VISIBILITY OF ELEMENT
-	 clp.waitForVisibilityOfElementuser().sendKeys("james");
-	 //NOT USING THREAD AND WAITING FOR THE VISIBILITY OF ELEMENT
-	 clp.waitForVisibilityOfElementsignin().click();
-	}
 public void WaitForTwoSeconds() throws InterruptedException {
 	Thread.sleep(2000);
 }
@@ -78,7 +76,10 @@ public void WaitForTwoSeconds() throws InterruptedException {
 //	@BeforeSuite
 	@Parameters({"browser"})
 	public void Launch_Browser(@Optional("Chrome")String browser) throws Exception {
-		
+		//Load the properties File		
+	    obj = new Properties();					
+	    FileInputStream objfile = new FileInputStream(System.getProperty("user.dir")+"\\application.properties");									
+	    obj.load(objfile);	
 		htmlReporter  = new ExtentHtmlReporter(System.getProperty("user.dir")+"./reports/extent.html");
 		htmlReporter.config().setEncoding("utf-8");
 		htmlReporter.config().setDocumentTitle("Centuri Automation Report");
@@ -106,9 +107,9 @@ public void WaitForTwoSeconds() throws InterruptedException {
 			//Check if parameter passed as 'chrome'
 			else if(browser.equalsIgnoreCase("Chrome")){
 				//set path to chromedriver.exe
-				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\drivers\\chromedriver_81.exe");
+				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\drivers\\chromedriver_83.exe");
 				//create chrome instance
-				driver = new ChromeDriver();
+				driver = new ChromeDriver(); 
 				//test.log(Status.PASS, "Chrome browser launchd and centuri regression test started");
 			}
 			//Check if parameter passed as 'Edge'
@@ -122,10 +123,9 @@ public void WaitForTwoSeconds() throws InterruptedException {
 				//If no browser passed throw exception
 				throw new Exception("Browser is not correct");
 			}
-		 driver.get("http://demo-centuri.conevo.in/");
+		 driver.get(obj.getProperty("URL"));
 		 driver.manage().window().maximize();
-		
-		 wait = new WebDriverWait(driver, 15);
+		 wait = new WebDriverWait(driver, 20);
 		 wait1 = new WebDriverWait(driver, 160);
 		 wait1.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
 		 userlogin();
@@ -139,6 +139,15 @@ public void WaitForTwoSeconds() throws InterruptedException {
 		
 		 
 		 
+	}
+	
+public void userlogin() throws InterruptedException {
+	
+	 CenturiLoginPage clp = new CenturiLoginPage(driver, wait);
+	 //NOT USING THREAD AND WAITING FOR THE VISIBILITY OF ELEMENT
+	 clp.waitForVisibilityOfElementuser().sendKeys(obj.getProperty("Username"));
+	 //NOT USING THREAD AND WAITING FOR THE VISIBILITY OF ELEMENT
+	 clp.waitForVisibilityOfElementsignin().click();
 	}
 
 	

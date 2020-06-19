@@ -25,6 +25,7 @@ public class CenturiToDoPage {
 	By subMenuThreeDotsIcon = By.className("submenu");
 	By saveDocumentButton = By.xpath("//li[contains(text(),'Save')]");
 	By delegatePublicationButton = By.xpath("//span[@class='ng-binding'][contains(text(),'Delegate publication')]");
+	
 	By waitdelegatePublicationButton = By.xpath("//span[@class='ng-binding'][contains(text(),'Delegate publication')]");
 	By recipientText = By.xpath("//h2[contains(text(),'Recipients')]");
 	By searchRecipient = By.xpath("//div[@class='selected']//input");
@@ -38,6 +39,10 @@ public class CenturiToDoPage {
 	}
 	public WebElement newDocumentInList() {
 		return driver.findElement(newDocumentInList);
+	}
+	public WebElement waitForVisibilityOfElementpublishButton() {
+		//return driver.findElement(subMenuThreeDotsIcon);
+		return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(publishButton));
 	}
 	public WebElement subMenuThreeDotsIcon() {
 		//return driver.findElement(subMenuThreeDotsIcon);
@@ -55,10 +60,13 @@ public class CenturiToDoPage {
 	public WebElement searchRecipient() {
 		return driver.findElement(searchRecipient);
 	}
+	public WebElement waitForVisibilityOfElementsearchRecipient() {
+		  return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(searchRecipient));
+		  }
 	public WebElement waitForVisibilityOfElementselectRecipient() {
 		  return webDriverWait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(selectRecipient));
 		  }
-	public WebElement waitdelegatePublicationButton() {
+	public WebElement waitForVisibilityOfElementDelegatePublicationButton() {
 		 return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(waitdelegatePublicationButton));
 		  }
 	/*public WebElement selectRecipient() {
@@ -68,7 +76,8 @@ public class CenturiToDoPage {
 		return driver.findElement(sendButton);
 	}
 	public WebElement selectDocumentCheckBox() {
-		return driver.findElement(selectDocumentCheckBox);
+		 return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(selectDocumentCheckBox));
+		//return driver.findElement(selectDocumentCheckBox);
 	}
 	public WebElement publishButton() {
 		return driver.findElement(publishButton);

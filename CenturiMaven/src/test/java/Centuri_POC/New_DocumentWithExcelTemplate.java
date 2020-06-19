@@ -153,7 +153,7 @@ public class New_DocumentWithExcelTemplate extends Centuri_Base {
 		ctdp.selectDocumentCheckBox().click();
 		crp.waitforsubMenuButton().click();
 		Thread.sleep(1000);
-		crp.archiveButton().click();
+		crp.waitforarchiveButton().click();
 		Thread.sleep(1000);
 		crp.waitforSendToArchiveButton().click();
 		Thread.sleep(3000);

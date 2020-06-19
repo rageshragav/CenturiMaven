@@ -1,5 +1,7 @@
 package objectrepository;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -232,4 +234,38 @@ public class CenturiHomePage {
 		public WebElement refreshText() {
 			return driver.findElement(refreshText);
 		}
+//----------------------------------------------------------------------------------------------------------------------------------------------
+		//Elements used in Admin modules test scripts Administration_Cases.java
+		By portalMenu = By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='portal-theme menu-item ng-scope']");
+		public List<WebElement> portalMenu() {
+			return driver.findElements(portalMenu);
+		}
+				
+		By contractMenu = By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='contract-theme menu-item ng-scope']");
+		public List<WebElement> contractMenu() {
+			return driver.findElements(contractMenu);
+		}
+		By caseMenu = By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='case-theme menu-item ng-scope']");
+		public List<WebElement> caseMenu() {
+			return driver.findElements(caseMenu);
+		}
+		By riskMenu = By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='risk-theme menu-item ng-scope']");
+		public List<WebElement> riskMenu() {
+			return driver.findElements(riskMenu);
+		}
+		By reportsMenu = By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='reports-theme menu-item ng-scope']");
+		public List<WebElement> reportsMenu() {
+			return driver.findElements(reportsMenu);
+		}
+		By helpMenu = By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='help-theme menu-item ng-scope']");
+		public List<WebElement> helpMenu() {
+			return driver.findElements(helpMenu);
+		}
+				/*driver.findElements(By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='read-theme menu-item ng-scope']"))
+				driver.findElements(By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='contract-theme menu-item ng-scope']"))
+				driver.findElements(By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='case-theme menu-item ng-scope']"))
+				driver.findElements(By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='risk-theme menu-item ng-scope']"))
+				driver.findElements(By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='reports-theme menu-item ng-scope']"))
+				driver.findElements(By.xpath("//div[@class='ng-scope ng-isolate-scope']//li[@class='help-theme menu-item ng-scope']"))
+				*/
 }
